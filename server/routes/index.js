@@ -34,7 +34,7 @@ var upload = multer({
     s3: s3,
     bucket: "midibank",
     metadata: function(req, file, cb) {
-      cb(null, { fieldName: file.fieldname });
+      cb(null, { fieldName: file.fieldname, key: file.originalname });
     },
     key: function(req, file, cb) {
       cb(null, Date.now().toString());
