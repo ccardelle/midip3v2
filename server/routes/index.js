@@ -1,4 +1,7 @@
 const express = require("express");
+var aws = require("aws-sdk");
+var multerS3 = require("multer-s3");
+
 const { isLoggedIn } = require("../middlewares");
 const Midi = require("../models/Midi");
 const multer = require("multer");
@@ -21,6 +24,27 @@ router.get("/profile", (req, res, next) => {
       next(err);
     });
 });
+
+var s3 = new aws.S3({
+  /* ... */
+});
+
+var upload = multer({
+  storage: multerS3({
+    s3: s3,
+    bucket: "midibank",
+    metadata: function(req, file, cb) {
+      cb(null, { fieldName: file.fieldname });
+    },
+    key: function(req, file, cb) {
+      cb(null, Date.now().toString());
+    }
+  })
+});
+
+// router.post("/upload", upload.single("photos", 3), function(req, res, next) {
+//   res.send("Successfully uploaded " + req.files.length + " files!");
+// });
 
 // router.post("/upload", uploadCloud.single("midi-file"), (req, res, next) => {
 //   Midi.create({
@@ -70,35 +94,35 @@ router.get("/profile", (req, res, next) => {
 //);%PUBLIC_URL%/
 
 // Defines Multer Storage Properties
-var storage = multer.diskStorage({
-  destination: function(req, file, cb) {
-    cb(null, "../public/uploads");
-    // cb(null, "%PUBLIC_URL%/public/uploads");
-  },
-  filename: function(req, file, cb) {
-    console.log(
-      "file",
-      file,
-      "THIS IS THE API RECEIVING END OOOOOOOOOOOOOOOOOOS"
-    );
-    filename = file.fieldname + "-" + Date.now() + ".mid";
-    //filename = "midi.mid";
-    console.log(
-      "-------------------------",
-      filename,
-      typeof filename,
-      "_+_+_+_+_+__+_+",
-      req.body,
-      req.params,
-      req.user
-    );
+// var storage = multer.diskStorage({
+//   destination: function(req, file, cb) {
+//     cb(null, "../public/uploads");
+//     // cb(null, "%PUBLIC_URL%/public/uploads");
+//   },
+//   filename: function(req, file, cb) {
+//     console.log(
+//       "file",
+//       file,
+//       "THIS IS THE API RECEIVING END OOOOOOOOOOOOOOOOOOS"
+//     );
+//     filename = file.fieldname + "-" + Date.now() + ".mid";
+//     //filename = "midi.mid";
+//     console.log(
+//       "-------------------------",
+//       filename,
+//       typeof filename,
+//       "_+_+_+_+_+__+_+",
+//       req.body,
+//       req.params,
+//       req.user
+//     );
 
-    cb(null, filename);
-    // cb(null, "middyNEWONE.mid");
-  }
-});
+//     cb(null, filename);
+//     // cb(null, "middyNEWONE.mid");
+//   }
+// });
 
-var upload = multer({ storage: storage });
+// var upload = multer({ storage: storage });
 
 // Upload Route
 router.post("/upload", upload.single("file"), (req, res, next) => {

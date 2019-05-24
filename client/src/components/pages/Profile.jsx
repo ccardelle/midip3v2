@@ -9,7 +9,7 @@ class Profile extends Component {
   };
 
   componentDidMount() {
-    Axios.get("https://midibank.herokuapp.com/api/midis", {
+    Axios.get("http://localhost:5000/api/midis", {
       headers: { "Content-Type": "application/octet-stream" }
     })
       .then(res => {
@@ -39,7 +39,7 @@ class Profile extends Component {
               <img className="profile-pic img-circle" src={synthlogo} alt="" />
               <h1 className="font-weight-light">USER NAME</h1>
               {/* Midi Link */}
-              {/* <a href="https://midibank.herokuapp.com/uploads/file-1558709787621.mid">
+              {/* <a href="http://localhost:5000/uploads/file-1558709787621.mid">
                 NEW MIDI{" "}
               </a> */}
               {this.showMidis()}
