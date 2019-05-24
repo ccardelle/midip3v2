@@ -86,18 +86,18 @@ export default {
       .catch(errHandler);
   },
 
-  addPicture(file) {
-    const formData = new FormData();
-    formData.append("picture", file);
-    return service
-      .post("/endpoint/to/add/a/picture", formData, {
-        headers: {
-          "Content-Type": "multipart/form-data"
-        }
-      })
-      .then(res => res.data)
-      .catch(errHandler);
-  },
+  // addPicture(file) {
+  //   const formData = new FormData();
+  //   formData.append("picture", file);
+  //   return service
+  //     .post("/endpoint/to/add/a/picture", formData, {
+  //       headers: {
+  //         "Content-Type": "multipart/form-data"
+  //       }
+  //     })
+  //     .then(res => res.data)
+  //     .catch(errHandler);
+  // },
   upload(uploadInfo, data) {
     console.log(
       "the info from the form to the api component >>>>>>>>>>>>> ",
@@ -107,14 +107,16 @@ export default {
     );
     const formData = new FormData();
     formData.append("file", uploadInfo);
+    formData.append("data", data);
+
     console.log(
       "This is after FormData Appends",
-      formData,
+      uploadInfo,
       "And this is DATA",
       data
     );
     return service
-      .post("/upload", formData, data, {
+      .post("/upload", formData, {
         headers: {
           "Content-Type": "multipart/form-data"
         }

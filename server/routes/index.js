@@ -115,7 +115,9 @@ router.post("/upload", upload.single("file"), (req, res, next) => {
     "body ",
     req.body,
     "params ",
-    req.params
+    req.params,
+    "file ",
+    req.file
   );
   if (!file) {
     const error = new Error("Please upload a file");
