@@ -1,0 +1,177 @@
+// --------------------
+// Definition of variables
+$primary: #080bd8;
+$secondary: #0d60e5;
+$tertiary: #cdd5dd;
+
+// ----------------------------------------
+// To install Boostrap:
+// 1) Run in the client folder: $ npm i bootstrap
+// 2) Import bootstrap with the following line
+// @import '../node_modules/bootstrap/scss/bootstrap.scss';
+//
+// To install Reactstrap:
+// 1) Run in the client folder: $ npm i reactstrap
+// 2) Go to the official documentation and take some examples: https://reactstrap.github.io/
+// import { Button } from 'reactstrap';
+// <Button color="danger">Danger!</Button>
+// ----------------------------------------
+
+// --------------------
+// Style reusable for all components
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: black;
+  background-color: $tertiary;
+  background: url("https://wallpapercave.com/wp/wp3210511.png") no-repeat center
+    center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+
+.info {
+  margin: 20px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  display: inline-block;
+  background-color: #5776e9;
+  color: white;
+}
+
+.info.info-danger {
+  background-color: #e73f3f;
+}
+.main-nav {
+  display: inline-block;
+  background-color: $primary;
+  padding: 0px;
+  color: white;
+}
+
+// --------------------
+// Style for App component
+.App {
+  text-align: center;
+
+  a {
+    color: white;
+    padding: 0 5px;
+    text-decoration: unset;
+    font-size: 1.3em;
+  }
+
+  a.active {
+    font-weight: bold;
+    border-radius: 20px;
+    border: solid 2px #0d60e5;
+    background-color: black;
+    padding: 10px;
+  }
+}
+
+.App-title {
+  font-size: 1.3em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+.App-logo {
+  // animation: App-logo-spin infinite 30s linear;
+  background-color: rgb(249, 249, 253);
+  border-radius: 20px;
+  border: solid 2px #0d60e5;
+  padding: 0 0.3vw;
+  width: 8vh;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// --------------------
+// Style for Home component
+.Home {
+  p {
+    font-size: 1.2em;
+  }
+}
+
+// --------------------
+// Style for Secret component
+.Secret {
+  .result {
+    font-size: 1.2em;
+    color: $primary;
+  }
+}
+
+.btncolors {
+  background-color: $primary !important;
+}
+
+.Login {
+  width: 60vw;
+  margin-top: 20vh;
+  padding: 2%;
+  border-radius: 10px;
+  background: #0d60e5;
+}
+
+.home-container {
+  background: #080bd8 !important;
+  border-radius: 20px;
+  margin-top: 20vh !important;
+  color: white;
+}
+
+.main-logo-group {
+  background-color: black;
+  border-radius: 0px;
+  // box-shadow: 0 0 10px 10px #141414;
+}
+
+.logo-title {
+  margin-left: 10px;
+}
+
+.play-btn {
+  float: right;
+  width: 5vh;
+}
+
+.profile-pic {
+  width: 120px;
+  height: 120px;
+  border: 2px solid #02fd94;
+  padding: 5px;
+}
+
+// .Login {
+//   display: flex;
+//   justify-content: center;
+//   margin-top: 10vh;
+//   border: solid 8px $primary;
+//   border-radius: 10px;
+//   background-color: grey;
+//   width: 50%;
+// }
+
+// .login-title {
+//   margin-right: 5vw;
+// }
+
+// .main-input {
+//   margin: 10px 0;
+// }
