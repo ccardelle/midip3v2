@@ -107,9 +107,14 @@ export default {
     );
     const formData = new FormData();
     formData.append("file", uploadInfo);
-
+    console.log(
+      "This is after FormData Appends",
+      formData,
+      "And this is DATA",
+      data
+    );
     return service
-      .post("/upload", formData, {
+      .post("/upload", formData, data, {
         headers: {
           "Content-Type": "multipart/form-data"
         }

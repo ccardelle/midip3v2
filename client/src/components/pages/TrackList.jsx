@@ -32,11 +32,12 @@ class TrackList extends React.Component {
               <img className="play-btn" src={playbtn} alt="" />
               <h5 className="mb-1">{midi.name}</h5>
               <h6>{midi.description}</h6>
-              <small>
-                <a download href={`./uploads/${midi.file}`}>
+
+              <a download href={`./uploads/${midi.file}`}>
+                <button className="btn btn-info btn-block my-2 btncolors">
                   DOWNLOAD
-                </a>
-              </small>
+                </button>
+              </a>
             </li>
           </ul>
         </div>
@@ -46,7 +47,7 @@ class TrackList extends React.Component {
 
   render() {
     return (
-      <React.Fragment>{this.showMidis}</React.Fragment>
+      <div>{this.showMidis()}</div>
 
       // <div className="list-group">
       //   <ul className="list-group list-group-item-action active">

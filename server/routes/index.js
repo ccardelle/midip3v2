@@ -66,21 +66,36 @@ router.get("/profile", (req, res, next) => {
 //         next(err);
 //       });
 //   }
-// );
+//
+//);
 
+// Defines Multer Storage Properties
 var storage = multer.diskStorage({
   destination: function(req, file, cb) {
     cb(null, "../client/build/uploads");
   },
   filename: function(req, file, cb) {
-    console.log("file", file);
+    console.log(
+      "file",
+      file,
+      "THIS IS THE API RECEIVING END OOOOOOOOOOOOOOOOOOS"
+    );
     filename = file.fieldname + "-" + Date.now() + ".mid";
     //filename = "midi.mid";
-    console.log("-------------------------", filename, typeof filename);
+    console.log(
+      "-------------------------",
+      filename,
+      typeof filename,
+      "_+_+_+_+_+__+_+",
+      req.body,
+      req.params,
+      req.user
+    );
     let midi = new Midi({
-      name: file.fieldname,
-      description: "hahah",
-      file: filename
+      name: req.body.name,
+      description: req.body.description,
+      file: filename,
+      owner: req.user._id
     });
 
     midi.save((err, doc) => {
@@ -91,8 +106,17 @@ var storage = multer.diskStorage({
   }
 });
 var upload = multer({ storage: storage });
+
+// Upload Route
 router.post("/upload", upload.single("file"), (req, res, next) => {
   const file = req.file;
+  console.log(
+    "/upload backend route",
+    "body ",
+    req.body,
+    "params ",
+    req.params
+  );
   if (!file) {
     const error = new Error("Please upload a file");
     error.httpStatusCode = 400;

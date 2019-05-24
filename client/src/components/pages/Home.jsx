@@ -15,7 +15,7 @@ export default class Home extends Component {
             <h1 className="font-weight-light">Recent Uploads</h1>
             <br />
             <TrackList />
-            <a href="./uploads/midi">midi</a>
+            {/* <a href="./uploads/midi">midi</a> */}
           </div>
         </div>
       </div>
