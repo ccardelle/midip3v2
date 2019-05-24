@@ -1,8 +1,34 @@
 import React, { Component, Link } from "react";
 import synthlogo from "../../components/synthlogo.svg";
+import Axios from "axios";
+Axios.defaults.withCredentials = true;
 
 class Profile extends Component {
-  state = {};
+  state = {
+    midis: []
+  };
+
+  componentDidMount() {
+    Axios.get("http://localhost:5000/api/midis", {
+      headers: { "Content-Type": "application/octet-stream" }
+    })
+      .then(res => {
+        console.log(443534534433454353535, res);
+        this.setState({ midis: res.data.midis });
+      })
+      .catch(err => console.error(err));
+  }
+
+  showMidis = () => {
+    return this.state.midis.map(midi => {
+      return (
+        <a download href={`./uploads/${midi.file}`}>
+          {midi.name}
+        </a>
+      );
+    });
+  };
+
   render() {
     return (
       <div className="container">
@@ -12,7 +38,11 @@ class Profile extends Component {
             <div>
               <img className="profile-pic img-circle" src={synthlogo} alt="" />
               <h1 className="font-weight-light">USER NAME</h1>
-              <a href="http://localhost:5000/uploads/middyNEWONE.mid" />
+              {/* Midi Link */}
+              {/* <a href="http://localhost:5000/uploads/file-1558709787621.mid">
+                NEW MIDI{" "}
+              </a> */}
+              {this.showMidis()}
             </div>
           </div>
         </div>
@@ -22,3 +52,5 @@ class Profile extends Component {
 }
 
 export default Profile;
+
+// client/build/uploads/file-1558709787621

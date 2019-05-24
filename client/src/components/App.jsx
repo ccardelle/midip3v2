@@ -37,11 +37,14 @@ export default class App extends Component {
           </NavLink>
           {/* <NavLink to="/countries">Countries</NavLink> */}
           {/* <NavLink to="/add-country">Add country</NavLink> */}
-          {!api.isLoggedIn() && <NavLink to="/profile">Profile</NavLink>}
+          {api.isLoggedIn() && <NavLink to="/profile">Profile</NavLink>}
           {/* <NavLink to="/profile">Profile</NavLink> */}
-          <NavLink to="/upload" exact>
-            Upload
-          </NavLink>
+          {api.isLoggedIn() && (
+            <NavLink to="/upload" exact>
+              Upload
+            </NavLink>
+          )}
+
           {!api.isLoggedIn() && <NavLink to="/signup">Signup</NavLink>}
           {!api.isLoggedIn() && <NavLink to="/login">Login</NavLink>}
           {api.isLoggedIn() && (

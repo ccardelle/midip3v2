@@ -38,35 +38,35 @@ router.get("/profile", (req, res, next) => {
 // });
 
 // Create MIDI File
-router.post(
-  "/CHANGEMEBACK/upload",
-  uploadCloud.single("file"),
-  (req, res, next) => {
-    console.log(
-      req.body.name,
-      "==============",
-      req.body.description,
-      "==============",
-      req.body.file,
-      "==============",
-      req.file
-    );
+// router.post(
+//   "/CHANGEMEBACK/upload",
+//   uploadCloud.single("file"),
+//   (req, res, next) => {
+//     console.log(
+//       req.body.name,
+//       "==============",
+//       req.body.description,
+//       "==============",
+//       req.body.file,
+//       "==============",
+//       req.file
+//     );
 
-    // Midi.create({
-    //   name: req.body.name,
-    //   description: req.body.description,
-    //   file: req.body.file
-    // })
+// Midi.create({
+//   name: req.body.name,
+//   description: req.body.description,
+//   file: req.body.file
+// })
 
-    Midi.create({ file: req.file })
-      .then(res => {
-        res.json({ data: res });
-      })
-      .catch(err => {
-        next(err);
-      });
-  }
-);
+//     Midi.create({ file: req.file })
+//       .then(res => {
+//         res.json({ data: res });
+//       })
+//       .catch(err => {
+//         next(err);
+//       });
+//   }
+// );
 
 var storage = multer.diskStorage({
   destination: function(req, file, cb) {
@@ -74,8 +74,20 @@ var storage = multer.diskStorage({
   },
   filename: function(req, file, cb) {
     console.log("file", file);
-    //cb(null, file.fieldname + "-" + Date.now());
-    cb(null, "middyNEWONE.mid");
+    filename = file.fieldname + "-" + Date.now() + ".mid";
+    //filename = "midi.mid";
+    console.log("-------------------------", filename, typeof filename);
+    let midi = new Midi({
+      name: file.fieldname,
+      description: "hahah",
+      file: filename
+    });
+
+    midi.save((err, doc) => {
+      console.log(err, doc, 25243534345);
+    });
+    cb(null, filename);
+    // cb(null, "middyNEWONE.mid");
   }
 });
 var upload = multer({ storage: storage });
@@ -87,7 +99,14 @@ router.post("/upload", upload.single("file"), (req, res, next) => {
     return next(error);
   }
   res.json({ file: file });
+
   //res.send(file);
+});
+
+router.get("/midis", (req, res, next) => {
+  Midi.find().then(midis => {
+    res.json({ midis: midis });
+  });
 });
 
 // router.post("/upload", uploadCloud.single("file"), (req, res, next) => {
