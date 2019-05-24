@@ -91,25 +91,19 @@ var storage = multer.diskStorage({
       req.params,
       req.user
     );
-    let midi = new Midi({
-      name: req.body.name,
-      description: req.body.description,
-      file: filename,
-      owner: req.user._id
-    });
 
-    midi.save((err, doc) => {
-      console.log(err, doc, 25243534345);
-    });
     cb(null, filename);
     // cb(null, "middyNEWONE.mid");
   }
 });
+
 var upload = multer({ storage: storage });
 
 // Upload Route
 router.post("/upload", upload.single("file"), (req, res, next) => {
   const file = req.file;
+  console.log(req.body);
+  console.log(req.file);
   console.log(
     "/upload backend route",
     "body ",
@@ -124,7 +118,18 @@ router.post("/upload", upload.single("file"), (req, res, next) => {
     error.httpStatusCode = 400;
     return next(error);
   }
-  res.json({ file: file });
+
+  let midi = new Midi({
+    name: req.body.name,
+    description: req.body.description,
+    file: req.file.filename,
+    owner: req.user._id
+  });
+
+  midi.save((err, doc) => {
+    console.log(err, doc, 25243534345);
+    res.json({ file: file });
+  });
 
   //res.send(file);
 });

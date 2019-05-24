@@ -107,7 +107,8 @@ export default {
     );
     const formData = new FormData();
     formData.append("file", uploadInfo);
-    formData.append("data", data);
+    formData.append("name", data.name);
+    formData.append("description", data.description);
 
     console.log(
       "This is after FormData Appends",
