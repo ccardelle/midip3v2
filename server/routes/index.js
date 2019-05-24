@@ -70,11 +70,12 @@ router.post(
 
 var storage = multer.diskStorage({
   destination: function(req, file, cb) {
-    cb(null, "uploads");
+    cb(null, "../client/build/uploads");
   },
   filename: function(req, file, cb) {
     console.log("file", file);
-    cb(null, file.fieldname + "-" + Date.now());
+    //cb(null, file.fieldname + "-" + Date.now());
+    cb(null, "middyNEWONE.mid");
   }
 });
 var upload = multer({ storage: storage });

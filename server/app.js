@@ -41,9 +41,9 @@ app.use(cookieParser());
 // Example: http://localhost:5000/favicon.ico => Display "~/client/build/favicon.ico"
 app.use(express.static(path.join(__dirname, "../client/build")));
 
-app.use(express.static(path.join(__dirname, "../client/uploads")));
+// app.use(express.static(path.join(__dirname, "../client/uploads")));
 
-app.use(express.static(path.join(__dirname, "uploads")));
+// app.use(express.static(path.join(__dirname, "uploads")));
 
 //app.use('/static', express.static(path.join(__dirname, 'src/client/public')))
 

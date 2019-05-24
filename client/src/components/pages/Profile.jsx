@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Link } from "react";
 import synthlogo from "../../components/synthlogo.svg";
 
 class Profile extends Component {
@@ -12,6 +12,7 @@ class Profile extends Component {
             <div>
               <img className="profile-pic img-circle" src={synthlogo} alt="" />
               <h1 className="font-weight-light">USER NAME</h1>
+              <a href="http://localhost:5000/uploads/middyNEWONE.mid" />
             </div>
           </div>
         </div>
