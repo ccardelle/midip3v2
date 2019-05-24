@@ -72,8 +72,8 @@ router.get("/profile", (req, res, next) => {
 // Defines Multer Storage Properties
 var storage = multer.diskStorage({
   destination: function(req, file, cb) {
-    // cb(null, "../public/uploads");
-    cb(null, "%PUBLIC_URL%/public/uploads");
+    cb(null, "../public/uploads");
+    // cb(null, "%PUBLIC_URL%/public/uploads");
   },
   filename: function(req, file, cb) {
     console.log(
