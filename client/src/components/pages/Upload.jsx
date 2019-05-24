@@ -41,7 +41,7 @@ class Upload extends React.Component {
         console.log("SUCCESS! [==================== ", result);
         this.props.history.push("/"); // Redirect to the home page
       })
-      .catch(err => this.setState({ message: err.toString() }));
+      .catch(err => this.setState({ message: err }));
   }
 
   // handleSubmit(e) {
