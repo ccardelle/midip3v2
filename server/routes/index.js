@@ -128,7 +128,7 @@ var upload = multer({
 router.post("/upload", upload.single("file"), (req, res, next) => {
   const file = req.file;
   console.log(req.body);
-  console.log(req.file);
+  console.log("AMAZON RESPONSE", req.file);
   console.log(
     "/upload backend route",
     "body ",
@@ -147,7 +147,7 @@ router.post("/upload", upload.single("file"), (req, res, next) => {
   let midi = new Midi({
     name: req.body.name,
     description: req.body.description,
-    file: req.file.filename,
+    file: req.file.location,
     owner: req.user._id
   });
 

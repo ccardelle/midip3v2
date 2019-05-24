@@ -33,7 +33,7 @@ class TrackList extends React.Component {
               <h5 className="mb-1">{midi.name}</h5>
               <h6>{midi.description}</h6>
 
-              <a download href={`./uploads/${midi.file}`}>
+              <a download href={midi.file}>
                 <button className="btn btn-info btn-block my-2 btncolors">
                   DOWNLOAD
                 </button>
