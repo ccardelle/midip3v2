@@ -150,8 +150,8 @@ router.post("/upload", upload.single("file"), (req, res, next) => {
   let midi = new Midi({
     name: req.body.name,
     description: req.body.description,
-    file: req.file.location
-    // owner: req.user._id
+    file: req.file.location,
+    owner: req.user._id
   });
 
   midi.save((err, doc) => {

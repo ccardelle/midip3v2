@@ -1,6 +1,8 @@
 import React from "react";
 import playbtn from "../playbtn.png";
 import Axios from "axios";
+import MidiPlayer from "midi-player-js";
+
 Axios.defaults.withCredentials = true;
 
 class TrackList extends React.Component {
@@ -18,7 +20,14 @@ class TrackList extends React.Component {
       })
       .catch(err => console.error(err));
   }
-
+  playMidi(e) {
+    console.log(e.target.name);
+    var Player = new MidiPlayer.Player(function(event) {
+      console.log(event);
+    });
+    Player.loadFile(e.target.name);
+    Player.play();
+  }
   showMidis() {
     return this.state.midis.map(midi => {
       return (
@@ -29,7 +38,13 @@ class TrackList extends React.Component {
         <div className="list-group">
           <ul className="list-group list-group-item-action active">
             <li className="list-group-item justify-content-between">
-              <img className="play-btn" src={playbtn} alt="" />
+              <img
+                className="play-btn"
+                src={playbtn}
+                alt=""
+                name={midi.file}
+                onClick={e => this.playMidi(e)}
+              />
               <h5 className="mb-1">{midi.name}</h5>
               <h6>{midi.description}</h6>
 
