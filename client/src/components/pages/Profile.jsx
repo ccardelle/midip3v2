@@ -1,11 +1,14 @@
-import React, { Component, Link } from "react";
+import React, { Router, Component, NavLink, Link } from "react";
 import synthlogo from "../../components/synthlogo.svg";
 import Axios from "axios";
 Axios.defaults.withCredentials = true;
 
 class Profile extends Component {
   state = {
-    user: []
+    user: [],
+    recentuploads: [],
+    favoritemidis: [],
+    following: []
   };
 
   componentDidMount() {
@@ -13,22 +16,48 @@ class Profile extends Component {
       headers: { "Content-Type": "application/octet-stream" }
     })
       .then(res => {
-        console.log(443534534433454353535, res);
+        console.log("Retriving user data", res);
         this.setState({ user: res.data.user[0] });
         console.log(this.state.user[0]);
       })
       .catch(err => console.error(err));
+
+    Axios.get("http://localhost:5000/api/userUploads", {
+      headers: { "Content-Type": "application/octet-stream" }
+    })
+      .then(res => {
+        console.log("Retrieving uploads", res);
+        this.setState({ recentuploads: res.data.uploads });
+        console.log(this.state.recentuploads);
+      })
+      .catch(err => console.error(err));
   }
 
-  // showMidis = () => {
-  //   return this.state.midis.map(midi => {
-  //     return (
-  //       <a download href={`./uploads/${midi.file}`}>
-  //         {midi.name}
-  //       </a>
-  //     );
-  //   });
-  // };
+  showMidis = () => {
+    return this.state.recentuploads.map(midi => {
+      return (
+        <div className="list-group">
+          <hr />
+          <ul className="list-group list-group-item-action active">
+            <li className="list-group-item justify-content-between secondary-container">
+              <h5 className="mb-1">{midi.name}</h5>
+              <h6>{midi.description}</h6>
+              {/* <Link to="/upload" exact>
+                <button className="btn btn-info  my-2 btncolors">
+                  Details
+                </button>
+              </Link> */}
+              <a download href={midi.file}>
+                <button className="btn btn-info  my-2 btncolors">
+                  Download
+                </button>
+              </a>
+            </li>
+          </ul>
+        </div>
+      );
+    });
+  };
 
   render() {
     return (
@@ -55,7 +84,7 @@ class Profile extends Component {
                 {/* <a href="http://localhost:5000/uploads/file-1558709787621.mid">
                 NEW MIDI{" "}
               </a> */}
-                {/* {this.showMidis()} */}
+                {this.showMidis()}
               </div>
             </div>
             <div className="card border-0 shadow my-5 secondary-container">

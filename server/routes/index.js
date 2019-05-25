@@ -175,6 +175,12 @@ router.get("/userProfile", (req, res, next) => {
   });
 });
 
+router.get("/userUploads", (req, res, next) => {
+  Midi.find({ owner: req.user._id }).then(uploads => {
+    res.json({ uploads: uploads });
+  });
+});
+
 // router.post("/upload", uploadCloud.single("file"), (req, res, next) => {
 //   console.log("what the file BACK END >>>>>>>>>>> ", req.file);
 //   console.log(
