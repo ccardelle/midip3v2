@@ -12,7 +12,7 @@ class TrackList extends React.Component {
   };
 
   componentDidMount() {
-    Axios.get("http://localhost:5000/api/midis", {
+    Axios.get("https://midibank.herokuapp.com//api/midis", {
       headers: { "Content-Type": "application/octet-stream" }
     })
       .then(res => {
