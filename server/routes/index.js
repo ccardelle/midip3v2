@@ -5,7 +5,7 @@ var multerS3 = require("multer-s3");
 const { isLoggedIn } = require("../middlewares");
 const Midi = require("../models/Midi");
 const multer = require("multer");
-const uploadCloud = require("../configs/cloudinary");
+// const uploadCloud = require("../configs/cloudinary");
 const router = express.Router();
 
 router.get("/secret", isLoggedIn, (req, res, next) => {
@@ -33,14 +33,17 @@ var upload = multer({
   storage: multerS3({
     s3: s3,
     bucket: "midibank",
+    acl: "public-read",
     metadata: function(req, file, cb) {
-      cb(null, { fieldName: file.fieldname, key: file.originalname });
+      cb(null, { fieldName: file.fieldname });
     },
     key: function(req, file, cb) {
-      cb(null, Date.now().toString());
+      cb(null, file.originalname);
     }
   })
 });
+
+// Date.now().toString()
 
 // router.post("/upload", upload.single("photos", 3), function(req, res, next) {
 //   res.send("Successfully uploaded " + req.files.length + " files!");
@@ -127,7 +130,7 @@ var upload = multer({
 // Upload Route
 router.post("/upload", upload.single("file"), (req, res, next) => {
   const file = req.file;
-  console.log(req.body);
+  console.log("CURRENT USER", req.user);
   console.log("AMAZON RESPONSE", req.file);
   console.log(
     "/upload backend route",
@@ -147,8 +150,8 @@ router.post("/upload", upload.single("file"), (req, res, next) => {
   let midi = new Midi({
     name: req.body.name,
     description: req.body.description,
-    file: req.file.location,
-    owner: req.user._id
+    file: req.file.location
+    // owner: req.user._id
   });
 
   midi.save((err, doc) => {
