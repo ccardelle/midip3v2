@@ -8,6 +8,8 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Profile from "./pages/Profile";
 import Upload from "./pages/Upload";
+import MidiDetails from "./pages/MidiDetails";
+import FAQ from "./pages/FAQ";
 import api from "../api";
 import synthlogo from "../components/synthlogo.svg";
 
@@ -30,7 +32,7 @@ export default class App extends Component {
         <nav className="navbar main-nav fixed-top">
           <div className="navbar main-logo-group">
             <img className="App-logo" src={synthlogo} alt="" />
-            <h1 className="logo-title">MIDIBank</h1>
+            <h1 className="logo-title">MidMix</h1>
           </div>
           <NavLink to="/" exact>
             Home
@@ -47,12 +49,12 @@ export default class App extends Component {
 
           {!api.isLoggedIn() && <NavLink to="/signup">Signup</NavLink>}
           {!api.isLoggedIn() && <NavLink to="/login">Login</NavLink>}
+          <NavLink to="/faq">FAQ</NavLink>
           {api.isLoggedIn() && (
             <Link to="/" onClick={e => this.handleLogoutClick(e)}>
               Logout
             </Link>
           )}
-          {/* <NavLink to="/secret">Secret</NavLink> */}
         </nav>
 
         <Switch>
@@ -64,6 +66,8 @@ export default class App extends Component {
           <Route path="/login" component={Login} />
           <Route path="/upload" component={Upload} />
           <Route path="/secret" component={Secret} />
+          <Route path="/mididetails" component={MidiDetails} />
+          <Route path="/faq" component={FAQ} />
           <Route render={() => <h2>404 - Page not found</h2>} />
         </Switch>
       </div>

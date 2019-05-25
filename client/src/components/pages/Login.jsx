@@ -54,7 +54,7 @@ export default class Login extends Component {
           />{" "}
           <br />
           <button
-            className="btn btn-info btn-block my-4 btncolors"
+            className="btn btn-info my-4 btncolors"
             onClick={e => this.handleClick(e)}
           >
             Login

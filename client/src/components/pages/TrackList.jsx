@@ -1,7 +1,8 @@
 import React from "react";
+import { Route, Link, NavLink, Switch } from "react-router-dom";
 import playbtn from "../playbtn.png";
 import Axios from "axios";
-import MidiPlayer from "midi-player-js";
+// import MidiPlayer from "midi-player-js";
 
 Axios.defaults.withCredentials = true;
 
@@ -20,14 +21,14 @@ class TrackList extends React.Component {
       })
       .catch(err => console.error(err));
   }
-  playMidi(e) {
-    console.log(e.target.name);
-    var Player = new MidiPlayer.Player(function(event) {
-      console.log(event);
-    });
-    Player.loadFile(e.target.name);
-    Player.play();
-  }
+  // playMidi(e) {
+  //   console.log(e.target.name);
+  //   var Player = new MidiPlayer.Player(function(event) {
+  //     console.log(event);
+  //   });
+  //   Player.loadFile(e.target.name);
+  //   Player.play();
+  // }
   showMidis() {
     return this.state.midis.map(midi => {
       return (
@@ -36,21 +37,19 @@ class TrackList extends React.Component {
         // </a>
 
         <div className="list-group">
+          <hr />
           <ul className="list-group list-group-item-action active">
-            <li className="list-group-item justify-content-between">
-              <img
-                className="play-btn"
-                src={playbtn}
-                alt=""
-                name={midi.file}
-                onClick={e => this.playMidi(e)}
-              />
+            <li className="list-group-item justify-content-between secondary-container">
               <h5 className="mb-1">{midi.name}</h5>
               <h6>{midi.description}</h6>
-
+              <NavLink to="/upload" exact>
+                <button className="btn btn-info  my-2 btncolors">
+                  Details
+                </button>
+              </NavLink>
               <a download href={midi.file}>
-                <button className="btn btn-info btn-block my-2 btncolors">
-                  DOWNLOAD
+                <button className="btn btn-info  my-2 btncolors">
+                  Download
                 </button>
               </a>
             </li>

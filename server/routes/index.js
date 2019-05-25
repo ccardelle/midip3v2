@@ -4,6 +4,7 @@ var multerS3 = require("multer-s3");
 
 const { isLoggedIn } = require("../middlewares");
 const Midi = require("../models/Midi");
+const User = require("../models/User");
 const multer = require("multer");
 // const uploadCloud = require("../configs/cloudinary");
 const router = express.Router();
@@ -165,6 +166,12 @@ router.post("/upload", upload.single("file"), (req, res, next) => {
 router.get("/midis", (req, res, next) => {
   Midi.find().then(midis => {
     res.json({ midis: midis });
+  });
+});
+
+router.get("/userProfile", (req, res, next) => {
+  User.find({ _id: req.user._id }).then(user => {
+    res.json({ user: user });
   });
 });
 

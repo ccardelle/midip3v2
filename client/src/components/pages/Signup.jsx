@@ -39,7 +39,7 @@ export default class Signup extends Component {
     return (
       <div className="Login container">
         <h2 className="text-center">Signup</h2>
-        <form className="text-center border border-light p-5">
+        <form className="text-center border border-light p-5 align-items-center">
           Username:{" "}
           <input
             className="form-control mb-4"
@@ -68,7 +68,7 @@ export default class Signup extends Component {
           />{" "}
           <br />
           <button
-            className="btn btn-info btn-block my-4 btncolors"
+            className="btn btn-info  my-2 btncolors"
             onClick={e => this.handleClick(e)}
           >
             Signup

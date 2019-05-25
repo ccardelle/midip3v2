@@ -16,6 +16,9 @@ export default class Home extends Component {
             <br />
             <TrackList />
             {/* <a href="./uploads/midi">midi</a> */}
+            {/* <audio controls="controls" preload="auto" id="audio_player">
+              <source src="https://s3.us-east-2.amazonaws.com/midibank/Harpsicon.mp3" />
+            </audio> */}
           </div>
         </div>
       </div>

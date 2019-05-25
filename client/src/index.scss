@@ -119,9 +119,6 @@ body {
 
 .btncolors {
   background-color: $primary !important;
-  width: 13vh;
-  float: right;
-  font-size: 0.5em;
 }
 
 .Login {
@@ -138,6 +135,12 @@ body {
   margin-top: 20vh !important;
   color: white;
 }
+.secondary-container {
+  background: white !important;
+  border-radius: 20px;
+  color: black;
+  box-shadow: 8px 10px 20px #000000 !important;
+}
 
 .main-logo-group {
   background-color: black;
@@ -149,16 +152,17 @@ body {
   margin-left: 10px;
 }
 
-.play-btn {
-  float: right;
-  width: 5vh;
-}
-
 .profile-pic {
   width: 120px;
   height: 120px;
   border: 2px solid #02fd94;
   padding: 5px;
+}
+
+.user-stats {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
 }
 
 // .Login {
