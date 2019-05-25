@@ -4,7 +4,7 @@ const service = axios.create({
   baseURL:
     process.env.NODE_ENV === "production"
       ? "/api"
-      : "https://midibank.herokuapp.com//api",
+      : "https://midibank.herokuapp.com/api",
   withCredentials: true
 });
 

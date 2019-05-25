@@ -68,7 +68,7 @@ $ npm install axios
 ```sh
 # Open a first terminal
 $ npm run dev:server
-# Run the server on https://midibank.herokuapp.com//
+# Run the server on https://midibank.herokuapp.com/
 
 # Open a second terminal
 $ npm run dev:client
@@ -77,9 +77,9 @@ $ npm run dev:client
 
 So now you can go to
 
-- https://midibank.herokuapp.com//api/: A simple API call
-- https://midibank.herokuapp.com//: The website based on client/build (that you can update with `$ (cd client && npm run build)`)
-- http://localhost:3000/: The last version of your React application that is calling your API with the base url "https://midibank.herokuapp.com//api/"
+- https://midibank.herokuapp.com/api/: A simple API call
+- https://midibank.herokuapp.com/: The website based on client/build (that you can update with `$ (cd client && npm run build)`)
+- http://localhost:3000/: The last version of your React application that is calling your API with the base url "https://midibank.herokuapp.com/api/"
 
 ## Global information
 
