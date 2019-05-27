@@ -86,10 +86,10 @@ export default {
       .catch(errHandler);
   },
 
-  getMidiDetails() {
-    // console.log("Received at API ==================== ");
+  getMidiDetails(mididetails) {
+    console.log("Received at API ==================== ", mididetails);
     return service
-      .get(`/MidiDetails`)
+      .get("/mididetails/" + mididetails)
       .then(res => res.data)
       .catch(errHandler);
   },

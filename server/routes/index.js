@@ -181,7 +181,7 @@ router.get("/userUploads", (req, res, next) => {
   });
 });
 
-router.get("/MidiDetails", (req, res, next) => {
+router.get("/mididetails/:id", (req, res, next) => {
   console.log("Received MIDI ID", req.params.id);
   Midi.find({ _id: req.params.id }).then(midi => {
     console.log(midi);

@@ -66,7 +66,7 @@ export default class App extends Component {
           <Route path="/login" component={Login} />
           <Route path="/upload" component={Upload} />
           <Route path="/secret" component={Secret} />
-          <Route path="/mididetails" component={MidiDetails} />
+          <Route path="/mididetails/:id" component={MidiDetails} />
           <Route path="/faq" component={FAQ} />
           <Route render={() => <h2>404 - Page not found</h2>} />
         </Switch>

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import TrackList from "./TrackList";
 
 class FAQ extends Component {
   // constructor(props) {

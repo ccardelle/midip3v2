@@ -42,7 +42,7 @@ class TrackList extends React.Component {
             <li className="list-group-item justify-content-between secondary-container">
               <h5 className="mb-1">{midi.name}</h5>
               <h6>{midi.description}</h6>
-              <NavLink to={`/MidiDetails/${midi._id}`}>
+              <NavLink to={`/mididetails/${midi._id}`}>
                 <button className="btn btn-info  my-2 btncolors">
                   Details
                 </button>
@@ -60,74 +60,7 @@ class TrackList extends React.Component {
   }
 
   render() {
-    return (
-      <div>{this.showMidis()}</div>
-
-      // <div className="list-group">
-      //   <ul className="list-group list-group-item-action active">
-      //     <li className="list-group-item justify-content-between">
-      //       <img className="play-btn" src={playbtn} alt="" />
-      //       <h5 className="mb-1">Track 1</h5>
-      //       <h6>Random MIDI Name</h6>
-      //       <small>3 days ago</small>
-      //     </li>
-      //     <li className="list-group-item justify-content-between">
-      //       <img className="play-btn" src={playbtn} alt="" />
-      //       <h5 className="mb-1">Track 1</h5>
-      //       <h6>Random MIDI Name</h6>
-      //       <small>3 days ago</small>
-      //     </li>{" "}
-      //     <li className="list-group-item justify-content-between">
-      //       <img className="play-btn" src={playbtn} alt="" />
-      //       <h5 className="mb-1">Track 1</h5>
-      //       <h6>Random MIDI Name</h6>
-      //       <small>3 days ago</small>
-      //     </li>{" "}
-      //     <li className="list-group-item justify-content-between">
-      //       <img className="play-btn" src={playbtn} alt="" />
-      //       <h5 className="mb-1">Track 1</h5>
-      //       <h6>Random MIDI Name</h6>
-      //       <small>3 days ago</small>
-      //     </li>{" "}
-      //     <li className="list-group-item justify-content-between">
-      //       <img className="play-btn" src={playbtn} alt="" />
-      //       <h5 className="mb-1">Track 1</h5>
-      //       <h6>Random MIDI Name</h6>
-      //       <small>3 days ago</small>
-      //     </li>{" "}
-      //     <li className="list-group-item justify-content-between">
-      //       <img className="play-btn" src={playbtn} alt="" />
-      //       <h5 className="mb-1">Track 1</h5>
-      //       <h6>Random MIDI Name</h6>
-      //       <small>3 days ago</small>
-      //     </li>
-      //     <li className="list-group-item justify-content-between">
-      //       <img className="play-btn" src={playbtn} alt="" />
-      //       <h5 className="mb-1">Track 1</h5>
-      //       <h6>Random MIDI Name</h6>
-      //       <small>3 days ago</small>
-      //     </li>{" "}
-      //     <li className="list-group-item justify-content-between">
-      //       <img className="play-btn" src={playbtn} alt="" />
-      //       <h5 className="mb-1">Track 1</h5>
-      //       <h6>Random MIDI Name</h6>
-      //       <small>3 days ago</small>
-      //     </li>{" "}
-      //     <li className="list-group-item justify-content-between">
-      //       <img className="play-btn" src={playbtn} alt="" />
-      //       <h5 className="mb-1">Track 1</h5>
-      //       <h6>Random MIDI Name</h6>
-      //       <small>3 days ago</small>
-      //     </li>{" "}
-      //     <li className="list-group-item justify-content-between">
-      //       <img className="play-btn" src={playbtn} alt="" />
-      //       <h5 className="mb-1">Track 1</h5>
-      //       <h6>Random MIDI Name</h6>
-      //       <small>3 days ago</small>
-      //     </li>{" "}
-      //   </ul>
-      // </div>
-    );
+    return <div>{this.showMidis()}</div>;
   }
 }
 
