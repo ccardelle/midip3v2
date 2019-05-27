@@ -3,19 +3,19 @@ import api from "../../api";
 
 class MidiDetails extends Component {
   state = {
-    secret: null,
+    midi: null,
     message: null
   };
   componentDidMount() {
     api
-      .getSecret()
-      .then(data => this.setState({ secret: data.secret }))
+      .getMidiDetails("/MidiDetails")
+      .then(data => this.setState({ midi: data.midi }))
       .catch(err => this.setState({ message: err.toString() }));
   }
 
   render() {
     return (
-      <div className="Secret">
+      <div className="Details">
         <h2>Midi Details</h2>
       </div>
     );

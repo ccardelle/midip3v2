@@ -12,7 +12,7 @@ class TrackList extends React.Component {
   };
 
   componentDidMount() {
-    Axios.get("https://midibank.herokuapp.com/api/midis", {
+    Axios.get("http://localhost:5000/api/midis", {
       headers: { "Content-Type": "application/octet-stream" }
     })
       .then(res => {
@@ -36,13 +36,13 @@ class TrackList extends React.Component {
         //   {midi.name}
         // </a>
 
-        <div className="list-group">
+        <div key={midi._id} className="list-group">
           <hr />
           <ul className="list-group list-group-item-action active">
             <li className="list-group-item justify-content-between secondary-container">
               <h5 className="mb-1">{midi.name}</h5>
               <h6>{midi.description}</h6>
-              <NavLink to="/upload" exact>
+              <NavLink to={`/MidiDetails/${midi._id}`}>
                 <button className="btn btn-info  my-2 btncolors">
                   Details
                 </button>

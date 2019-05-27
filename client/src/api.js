@@ -4,7 +4,7 @@ const service = axios.create({
   baseURL:
     process.env.NODE_ENV === "production"
       ? "/api"
-      : "https://midibank.herokuapp.com/api",
+      : "http://localhost:5000/api",
   withCredentials: true
 });
 
@@ -82,6 +82,14 @@ export default {
   getSecret() {
     return service
       .get("/secret")
+      .then(res => res.data)
+      .catch(errHandler);
+  },
+
+  getMidiDetails() {
+    // console.log("Received at API ==================== ");
+    return service
+      .get(`/MidiDetails`)
       .then(res => res.data)
       .catch(errHandler);
   },

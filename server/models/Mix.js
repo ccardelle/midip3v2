@@ -1,14 +1,14 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const MidiSchema = new Schema(
+const MixSchema = new Schema(
   {
-    name: { type: String, default: "Unnamed Track" },
+    name: { type: String, default: "Unnamed Mix" },
     description: String,
     owner: { type: Schema.Types.ObjectId, ref: "User" },
     rating: Number,
     file: String,
-    mixes: { type: Schema.Types.ObjectId, ref: "Mix" }
+    midiname: String
   },
   {
     timestamps: {
@@ -18,5 +18,5 @@ const MidiSchema = new Schema(
   }
 );
 
-const Midi = mongoose.model("Midi", MidiSchema);
-module.exports = Midi;
+const Mix = mongoose.model("Mix", MixSchema);
+module.exports = Mix;

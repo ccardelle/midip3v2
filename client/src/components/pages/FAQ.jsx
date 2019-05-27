@@ -17,10 +17,10 @@ class FAQ extends Component {
             <div>
               <hr />
               <section>
-                <h3> What is MidMix?</h3>
+                <h3> What is MIDIBank?</h3>
                 <p>
                   {" "}
-                  MidMix is a music collaboration site. It centers around
+                  MIDIBank is a music collaboration site. It centers around
                   sharing a MIDI file template and challenging others to build a
                   song around it.
                 </p>

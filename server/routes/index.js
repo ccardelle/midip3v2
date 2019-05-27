@@ -181,6 +181,14 @@ router.get("/userUploads", (req, res, next) => {
   });
 });
 
+router.get("/MidiDetails", (req, res, next) => {
+  console.log("Received MIDI ID", req.params.id);
+  Midi.find({ _id: req.params.id }).then(midi => {
+    console.log(midi);
+    res.json({ midi: midi });
+  });
+});
+
 // router.post("/upload", uploadCloud.single("file"), (req, res, next) => {
 //   console.log("what the file BACK END >>>>>>>>>>> ", req.file);
 //   console.log(
