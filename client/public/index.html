@@ -7,6 +7,7 @@
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
     <meta name="theme-color" content="#000000" />
+    <script type="text/javascript" src="//www.midijs.net/lib/midi.js"></script>
     <!--
       manifest.json provides metadata used when your web app is added to the
       homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
@@ -43,5 +44,15 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <!-- <script>
+      type="text/javascript" src="//www.midijs.net/lib/midi.js"
+    </script> -->
+    <a
+      href="#"
+      onclick="MIDIjs.play('https://midibank.s3.us-east-2.amazonaws.com/GameofThrones.mid');"
+    >
+      Play GameofThrones.mid </a
+    ><br />
+    <a href="#" onclick="MIDIjs.stop();">Stop MIDI Playback</a>
   </body>
 </html>
