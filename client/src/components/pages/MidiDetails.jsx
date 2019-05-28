@@ -69,7 +69,7 @@ class MidiDetails extends Component {
           </ul>
           <hr />
           <h2 className="text-white">Mixes</h2>
-          <div className="list-group col-md-3" />
+          <div className="list-group col-md-3 secondary-container" />
           {this.showMixes()}
         </div>
       );
@@ -79,7 +79,7 @@ class MidiDetails extends Component {
   showMixes = () => {
     return this.state.mixes.map(mixes => {
       return (
-        <div className="list-group-item col-md-3">
+        <div className="list-group-item col-md-3 secondary-container">
           <div className="list-item text-dark">
             TESTING <hr />
             {mixes.name}
