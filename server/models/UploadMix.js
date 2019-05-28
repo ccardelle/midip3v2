@@ -1,14 +1,14 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const MixSchema = new Schema(
+const UploadMixSchema = new Schema(
   {
     name: { type: String, default: "Unnamed Mix" },
     description: String,
     owner: { type: Schema.Types.ObjectId, ref: "User" },
     rating: Number,
     file: String,
-    midiname: String
+    midiname: { type: Schema.Types.ObjectId, ref: "Midi" }
   },
   {
     timestamps: {
@@ -18,5 +18,5 @@ const MixSchema = new Schema(
   }
 );
 
-const Mix = mongoose.model("Mix", MixSchema);
-module.exports = Mix;
+const UploadMix = mongoose.model("UploadMix", UploadMixSchema);
+module.exports = UploadMix;

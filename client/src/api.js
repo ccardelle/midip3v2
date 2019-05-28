@@ -94,6 +94,14 @@ export default {
       .catch(errHandler);
   },
 
+  getMixesDetails(mixesdetails) {
+    console.log("Received at API ==================== ", mixesdetails);
+    return service
+      .get("/mixesdetails/" + mixesdetails)
+      .then(res => res.data)
+      .catch(errHandler);
+  },
+
   // addPicture(file) {
   //   const formData = new FormData();
   //   formData.append("picture", file);
@@ -126,6 +134,39 @@ export default {
     );
     return service
       .post("/upload", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data"
+        }
+      })
+      .then(res => {
+        console.log("adfasdfsaf", res);
+        // If we have localStorage.getItem('user') saved, the application will consider we are loggedin
+        // localStorage.setItem("user", JSON.stringify(res.data));
+        return res.data;
+      })
+      .catch(errHandler);
+  },
+
+  uploadmix(uploadInfo, data) {
+    console.log(
+      "the info from the form to the api component >>>>>>>>>>>>> ",
+      uploadInfo,
+      "------------------- ",
+      data
+    );
+    const formData = new FormData();
+    formData.append("file", uploadInfo);
+    formData.append("name", data.name);
+    formData.append("description", data.description);
+    formData.append("midiname", data.midiname);
+    console.log(
+      "This is after FormData Appends",
+      uploadInfo,
+      "And this is DATA",
+      data
+    );
+    return service
+      .post("/uploadmix", formData, {
         headers: {
           "Content-Type": "multipart/form-data"
         }

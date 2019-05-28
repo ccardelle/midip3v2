@@ -9,6 +9,8 @@ import Signup from "./pages/Signup";
 import Profile from "./pages/Profile";
 import Upload from "./pages/Upload";
 import MidiDetails from "./pages/MidiDetails";
+import UploadMix from "./pages/UploadMix";
+
 import FAQ from "./pages/FAQ";
 import api from "../api";
 import synthlogo from "../components/synthlogo.svg";
@@ -66,8 +68,10 @@ export default class App extends Component {
           <Route path="/login" component={Login} />
           <Route path="/upload" component={Upload} />
           <Route path="/secret" component={Secret} />
-          <Route path="/mididetails/:id" component={MidiDetails} />
           <Route path="/faq" component={FAQ} />
+          <Route path="/mididetails/:id" component={MidiDetails} />
+          <Route path="/uploadmix/:id" component={UploadMix} />
+
           <Route render={() => <h2>404 - Page not found</h2>} />
         </Switch>
       </div>

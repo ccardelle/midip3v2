@@ -5,6 +5,7 @@ var multerS3 = require("multer-s3");
 const { isLoggedIn } = require("../middlewares");
 const Midi = require("../models/Midi");
 const User = require("../models/User");
+const UploadMix = require("../models/UploadMix");
 const multer = require("multer");
 // const uploadCloud = require("../configs/cloudinary");
 const router = express.Router();
@@ -163,6 +164,43 @@ router.post("/upload", upload.single("file"), (req, res, next) => {
   //res.send(file);
 });
 
+router.post("/uploadmix", upload.single("file"), (req, res, next) => {
+  const file = req.file;
+  // const originalmidi = req.params.id;
+  console.log("CURRENT MIX USER", req.user);
+  console.log("CURRENT MIX ORIGINAL MIDI", req.params.id);
+  console.log("AMAZON MIX RESPONSE", req.file);
+  console.log(
+    "/uploadmix backend route",
+    "body ",
+    req.body,
+    "params ",
+    req.params,
+    "file ",
+    req.file
+  );
+  if (!file) {
+    const error = new Error("Please upload a file");
+    error.httpStatusCode = 400;
+    return next(error);
+  }
+
+  let uploadmix = new UploadMix({
+    name: req.body.name,
+    description: req.body.description,
+    file: req.file.location,
+    owner: req.user._id,
+    midiname: req.body.midiname
+  });
+
+  uploadmix.save((err, doc) => {
+    console.log(err, doc, 25243534345);
+    res.json({ file: file });
+  });
+
+  //res.send(file);
+});
+
 router.get("/midis", (req, res, next) => {
   Midi.find().then(midis => {
     res.json({ midis: midis });
@@ -186,6 +224,14 @@ router.get("/mididetails/:id", (req, res, next) => {
   Midi.find({ _id: req.params.id }).then(midi => {
     console.log(midi);
     res.json({ midi: midi });
+  });
+});
+
+router.get("/mixesdetails/:id", (req, res, next) => {
+  console.log("Received MIDI ID", req.params.id);
+  UploadMix.find({ midiname: req.params.id }).then(mixes => {
+    console.log(mixes);
+    res.json({ mixes: mixes });
   });
 });
 
