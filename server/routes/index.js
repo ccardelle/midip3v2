@@ -151,6 +151,15 @@ router.get("/mixesdetails/:id", (req, res, next) => {
   });
 });
 
+router.delete("/deletemix/:id"),
+  (req, res, next) => {
+    console.log("Received mix ID", req.params.id);
+    UploadMix.findByIdAndDelete(req.params.id).then(mix => {
+      console.log(mix);
+      // res.json({ mix: mix });
+    });
+  };
+
 // router.post("/upload", uploadCloud.single("file"), (req, res, next) => {
 //   console.log("what the file BACK END >>>>>>>>>>> ", req.file);
 //   console.log(

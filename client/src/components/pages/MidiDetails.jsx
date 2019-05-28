@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import api from "../../api";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 // import Axios from "axios";
 // Axios.defaults.withCredentials = true;
 
@@ -76,6 +78,15 @@ class MidiDetails extends Component {
     });
   };
 
+  handleDeleteClick(e) {
+    console.log(e.target.id);
+    var deletemidi = e.target.id;
+
+    api.deleteMix(deletemidi);
+    // .then(res => this.setState({ mixes: res.mixes }))
+    // .catch(err => this.setState({ message: err.toString() }));
+  }
+
   showMixes = () => {
     return this.state.mixes.map(mixes => {
       return (
@@ -84,9 +95,19 @@ class MidiDetails extends Component {
           className="list-group-item col-md-4 secondary-container"
         >
           <div className="list-item text-dark">
-            TESTING <hr />
-            {mixes.name}
+            <h4>{mixes.name}</h4>
             <br />
+
+            <button id={mixes._id} onClick={e => this.handleDeleteClick(e)}>
+              <FontAwesomeIcon
+                id={mixes._id}
+                icon="trash-alt"
+                onClick={e => this.handleDeleteClick(e)}
+              />
+            </button>
+
+            <hr />
+
             {mixes.description}
             <div className="col-sm-offset-4 embed-responsive embed-responsive-16by9">
               <audio controls className="embed-responsive-item">

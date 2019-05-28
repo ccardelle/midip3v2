@@ -102,6 +102,21 @@ export default {
       .catch(errHandler);
   },
 
+  editUser(user) {
+    console.log("Received at API ==================== ", user);
+    return service
+      .get("/edituser/" + user)
+      .then(res => res.data)
+      .catch(errHandler);
+  },
+
+  deleteMix(mixId) {
+    console.log("Received at API ==================== ", mixId);
+    return service.delete("/deletemix/" + mixId);
+    // .then(res => res.data)
+    // .catch(errHandler);
+  },
+
   // addPicture(file) {
   //   const formData = new FormData();
   //   formData.append("picture", file);
