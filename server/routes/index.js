@@ -129,6 +129,14 @@ router.get("/userProfile", (req, res, next) => {
   });
 });
 
+router.delete("/deletemix/:id", (req, res, next) => {
+  console.log("Received mix ID", req.params.id);
+  UploadMix.findByIdAndDelete(req.params.id).then(mix => {
+    console.log(mix);
+    res.json({ mix: mix });
+  });
+});
+
 router.get("/userUploads", (req, res, next) => {
   Midi.find({ owner: req.user._id }).then(uploads => {
     res.json({ uploads: uploads });
@@ -150,15 +158,6 @@ router.get("/mixesdetails/:id", (req, res, next) => {
     res.json({ mixes: mixes });
   });
 });
-
-router.delete("/deletemix/:id"),
-  (req, res, next) => {
-    console.log("Received mix ID", req.params.id);
-    UploadMix.findByIdAndDelete(req.params.id).then(mix => {
-      console.log(mix);
-      // res.json({ mix: mix });
-    });
-  };
 
 // router.post("/upload", uploadCloud.single("file"), (req, res, next) => {
 //   console.log("what the file BACK END >>>>>>>>>>> ", req.file);

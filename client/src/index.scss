@@ -1,7 +1,7 @@
 // --------------------
 // Definition of variables
-$primary: #080bd8;
-$secondary: #0d60e5;
+$primary: #2869f5;
+$secondary: #0717a5;
 $tertiary: #cdd5dd;
 
 // ----------------------------------------
@@ -113,12 +113,12 @@ body {
 .Secret {
   .result {
     font-size: 1.2em;
-    color: $primary;
+    color: $secondary;
   }
 }
 
 .btncolors {
-  background-color: $primary !important;
+  background-color: $secondary !important;
 }
 
 .Login {
@@ -126,11 +126,11 @@ body {
   margin-top: 20vh;
   padding: 2%;
   border-radius: 10px;
-  background: #0d60e5;
+  background: $primary;
 }
 
 .home-container {
-  background: #080bd8 !important;
+  background: $primary !important;
   border-radius: 20px;
   margin-top: 20vh !important;
   color: white;
@@ -155,7 +155,7 @@ body {
 .profile-pic {
   width: 120px;
   height: 120px;
-  border: 2px solid #02fd94;
+  border: 2px solid $secondary;
   padding: 5px;
 }
 

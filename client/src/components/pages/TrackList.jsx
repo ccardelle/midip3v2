@@ -57,7 +57,7 @@ class TrackList extends React.Component {
                   name={midi.name}
                   onClick={() => window.MIDIjs.play(midi.file)}
                 >
-                  Play
+                  Play ▶
                 </button>
               </a>
               <a>
@@ -65,7 +65,7 @@ class TrackList extends React.Component {
                   className="btn btn-info my-2 btncolors"
                   onClick={() => window.MIDIjs.play()}
                 >
-                  Stop
+                  Stop ◽
                 </button>
               </a>
             </li>

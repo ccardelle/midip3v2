@@ -110,11 +110,12 @@ export default {
       .catch(errHandler);
   },
 
-  deleteMix(mixId) {
+  deleteMix(mixId, randomthing) {
     console.log("Received at API ==================== ", mixId);
-    return service.delete("/deletemix/" + mixId);
-    // .then(res => res.data)
-    // .catch(errHandler);
+    return service
+      .delete(`/deletemix/${mixId}`)
+      .then(res => res.data)
+      .catch(errHandler);
   },
 
   // addPicture(file) {

@@ -10,7 +10,8 @@ class MidiDetails extends Component {
   state = {
     midi: [],
     message: [],
-    mixes: []
+    mixes: [],
+    counter: 0
   };
 
   // componentDidMount() {
@@ -82,7 +83,10 @@ class MidiDetails extends Component {
     console.log(e.target.id);
     var deletemidi = e.target.id;
 
-    api.deleteMix(deletemidi);
+    api.deleteMix(deletemidi).then(res => {
+      this.props.history.push(`/`);
+    });
+
     // .then(res => this.setState({ mixes: res.mixes }))
     // .catch(err => this.setState({ message: err.toString() }));
   }
@@ -97,15 +101,15 @@ class MidiDetails extends Component {
           <div className="list-item text-dark">
             <h4>{mixes.name}</h4>
             <br />
-
-            <button id={mixes._id} onClick={e => this.handleDeleteClick(e)}>
-              <FontAwesomeIcon
-                id={mixes._id}
-                icon="trash-alt"
-                onClick={e => this.handleDeleteClick(e)}
-              />
-            </button>
-
+            {JSON.parse(localStorage.getItem("user"))._id === mixes.owner && (
+              <button id={mixes._id} onClick={e => this.handleDeleteClick(e)}>
+                <FontAwesomeIcon
+                  id={mixes._id}
+                  icon="trash-alt"
+                  onClick={e => this.handleDeleteClick(e)}
+                />
+              </button>
+            )}
             <hr />
 
             {mixes.description}
