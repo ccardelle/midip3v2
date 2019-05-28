@@ -42,7 +42,7 @@ class MidiDetails extends Component {
   showDetails = () => {
     return this.state.midi.map(midi => {
       return (
-        <div className="list-group">
+        <div key={midi._id} className="list-group">
           <hr />
           <h2 className="text-white">Song Details</h2>
           <ul className="list-group list-group-item-action">
@@ -79,15 +79,23 @@ class MidiDetails extends Component {
   showMixes = () => {
     return this.state.mixes.map(mixes => {
       return (
-        <div className="list-group-item col-md-3 secondary-container">
+        <div
+          key={mixes._id}
+          className="list-group-item col-md-4 secondary-container"
+        >
           <div className="list-item text-dark">
             TESTING <hr />
             {mixes.name}
             <br />
             {mixes.description}
-            <audio controls="controls" preload="auto" id="audio_player">
+            <div className="col-sm-offset-4 embed-responsive embed-responsive-16by9">
+              <audio controls className="embed-responsive-item">
+                <source src={mixes.file} />
+              </audio>
+            </div>
+            {/* <audio controls="controls" preload="auto" id="audio_player">
               <source src={mixes.file} />
-            </audio>
+            </audio> */}
           </div>
         </div>
       );
@@ -96,7 +104,7 @@ class MidiDetails extends Component {
 
   render() {
     return (
-      <div className="Details list-group-item justify-content-between home-container">
+      <div className="details list-group-item justify-content-between home-container">
         {this.showDetails()}
       </div>
     );

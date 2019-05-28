@@ -36,7 +36,7 @@ class Profile extends Component {
   showMidis = () => {
     return this.state.recentuploads.map(midi => {
       return (
-        <div className="list-group">
+        <div key={midi._id} className="list-group">
           <hr />
           <ul className="list-group list-group-item-action active">
             <li className="list-group-item justify-content-between secondary-container">

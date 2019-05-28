@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import { Route, Link, NavLink, Switch } from "react-router-dom";
 import Home from "./pages/Home";
-// import Countries from "./pages/Countries";
-// import AddCountry from "./pages/AddCountry";
 import Secret from "./pages/Secret";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
@@ -39,8 +37,7 @@ export default class App extends Component {
           <NavLink to="/" exact>
             Home
           </NavLink>
-          {/* <NavLink to="/countries">Countries</NavLink> */}
-          {/* <NavLink to="/add-country">Add country</NavLink> */}
+
           {api.isLoggedIn() && <NavLink to="/profile">Profile</NavLink>}
           {/* <NavLink to="/profile">Profile</NavLink> */}
           {api.isLoggedIn() && (

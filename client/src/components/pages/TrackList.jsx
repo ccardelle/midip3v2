@@ -56,44 +56,34 @@ class TrackList extends React.Component {
           <hr />
           <ul className="list-group list-group-item-action active">
             <li className="list-group-item justify-content-between secondary-container">
+              <small className="mixnumber">Current Mixes: 2</small> <br />
               <h5 className="mb-1">{midi.name}</h5>
               <h6>{midi.description}</h6>
               <NavLink to={`/mididetails/${midi._id}`}>
-                <button className="btn btn-info  my-2 btncolors">
-                  Details
-                </button>
+                <button className="btn btn-info my-2 btncolors">Details</button>
               </NavLink>
               <a download href={midi.file}>
-                <button className="btn btn-info  my-2 btncolors">
+                <button className="btn btn-info my-2 btncolors">
                   Download
                 </button>
               </a>
-              {/* <button name={midi.file} onClick={e => this.handleMidiClick(e)}>
-                {" "}
-                Click me 2{" "}
-              </button> */}
-              {/* <a href="#" onClick={`MIDIjs.play(${midi.file})`}>
-                Play hinematov.mid
-              </a> */}
-              {React.createElement(
-                "button",
-                {
-                  href: "#",
-                  onclick:
-                    "MIDIjs.play('https://midibank.s3.amazonaws.com/Rick%20Astley%20-%20Never%20Gonna%20Give%20You%20Up.mid');",
-                  className: "buttonTest"
-                },
-                `PLAY`
-              )}
-
-              <button
-                name={midi.name}
-                onClick={() =>
-                  "MIDIjs.play('https://midibank.s3.amazonaws.com/Rick%20Astley%20-%20Never%20Gonna%20Give%20You%20Up.mid');"
-                }
-              >
-                Click me
-              </button>
+              <a>
+                <button
+                  className="btn btn-info my-2 btncolors"
+                  name={midi.name}
+                  onClick={() => window.MIDIjs.play(midi.file)}
+                >
+                  Play
+                </button>
+              </a>
+              <a>
+                <button
+                  className="btn btn-info my-2 btncolors"
+                  onClick={() => window.MIDIjs.play()}
+                >
+                  Stop
+                </button>
+              </a>
             </li>
           </ul>
         </div>
