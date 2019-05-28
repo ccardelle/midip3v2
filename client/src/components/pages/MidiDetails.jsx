@@ -83,6 +83,7 @@ class MidiDetails extends Component {
           <div className="list-item text-dark">
             TESTING <hr />
             {mixes.name}
+            <br />
             {mixes.description}
             <audio controls="controls" preload="auto" id="audio_player">
               <source src={mixes.file} />
