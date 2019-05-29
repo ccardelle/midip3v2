@@ -16,7 +16,7 @@ class MidiDetails extends Component {
 
   // componentDidMount() {
   //   Axios.get(
-  //     "https://midibank.herokuapp.com/api/mididetails/" + this.props.match.params.id,
+  //     "http://localhost:5000/api/mididetails/" + this.props.match.params.id,
   //     {
   //       headers: { "Content-Type": "application/octet-stream" }
   //     }
@@ -72,8 +72,10 @@ class MidiDetails extends Component {
           </ul>
           <hr />
           <h2 className="text-white">Mixes</h2>
-          <div className="list-group col-md-3 secondary-container" />
-          {this.showMixes()}
+          <div className="container">
+            <div className="list-group" />
+            {this.showMixes()}
+          </div>
         </div>
       );
     });
@@ -84,7 +86,7 @@ class MidiDetails extends Component {
     var deletemidi = e.target.id;
 
     api.deleteMix(deletemidi).then(res => {
-      this.props.history.push(`/`);
+      this.props.history.push(`#`);
     });
 
     // .then(res => this.setState({ mixes: res.mixes }))
@@ -94,11 +96,8 @@ class MidiDetails extends Component {
   showMixes = () => {
     return this.state.mixes.map(mixes => {
       return (
-        <div
-          key={mixes._id}
-          className="list-group-item col-md-4 secondary-container"
-        >
-          <div className="list-item text-dark">
+        <div key={mixes._id} className="row list-group-item list-additional">
+          <div key={mixes._id} className="text-dark mb-1">
             <h4>{mixes.name}</h4>
             <br />
             {JSON.parse(localStorage.getItem("user"))._id === mixes.owner && (
@@ -113,7 +112,7 @@ class MidiDetails extends Component {
             <hr />
 
             {mixes.description}
-            <div className="col-sm-offset-4 embed-responsive embed-responsive-16by9">
+            <div className="">
               <audio controls className="embed-responsive-item">
                 <source src={mixes.file} />
               </audio>

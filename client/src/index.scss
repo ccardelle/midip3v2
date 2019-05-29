@@ -24,9 +24,12 @@ body {
   padding: 0;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: black;
-  background-color: $tertiary;
-  background: url("https://wallpapercave.com/wp/wp3210511.png") no-repeat center
-    center fixed;
+  // background-color: rgb(0, 0, 0);
+  background: url("./components/sequenceimg.jpg") no-repeat center center fixed;
+  // background: url("https://wallpapercave.com/wp/wp3210511.png") no-repeat center
+  //   center fixed;
+  // background-image: linear-gradient(to right, rgba(7, 6, 6, 0), #2869f5);
+
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
@@ -50,6 +53,7 @@ body {
   background-color: $primary;
   padding: 0px;
   color: white;
+  font-size: 0.7 em;
 }
 
 // --------------------
@@ -87,7 +91,7 @@ body {
   border-radius: 20px;
   border: solid 2px #0d60e5;
   padding: 0 0.3vw;
-  width: 8vh;
+  width: 6vh;
 }
 
 @keyframes App-logo-spin {
@@ -129,10 +133,42 @@ body {
   background: $primary;
 }
 
+.header-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // background-image: url("./components/sequenceimg.jpg");
+  background-position: center;
+  // background-blend-mode: color-burn;
+  // background-color: $primary;
+  height: 100vh;
+  background-size: cover;
+  // box-shadow: 0 0 8px 8px black inset;
+
+  // background: $primary !important;
+  margin-top: 10vh !important;
+  color: white;
+  padding: 10px;
+}
+
+.header-text {
+  background: rgba(0, 0, 0, 0.8);
+  width: 80%;
+  padding: 10vh;
+  border-radius: 10px;
+  margin: 15%;
+}
+
+.bg-test {
+  background: url("https://wallpapercave.com/wp/wp3210511.png") no-repeat center
+    center fixed;
+  padding: 5vh 2vh;
+  margin: 20% 0;
+}
 .home-container {
   background: $primary !important;
   border-radius: 20px;
-  margin-top: 20vh !important;
+  margin-top: 15vh !important;
   color: white;
 }
 .secondary-container {
@@ -150,6 +186,7 @@ body {
 
 .logo-title {
   margin-left: 10px;
+  font-size: 1.5em !important;
 }
 
 .profile-pic {
@@ -169,6 +206,10 @@ body {
   display: flex;
   float: right;
   font-size: 0.8em;
+}
+
+.list-additional {
+  margin-bottom: 15px;
 }
 
 // .Login {

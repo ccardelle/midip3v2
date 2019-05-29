@@ -9,12 +9,24 @@ export default class Home extends Component {
 
   render() {
     return (
-      <div className="container">
-        <div className="card border-0 shadow my-5 home-container">
-          <div className="card-body p-5">
-            <h1 className="font-weight-light">Current Challenges</h1>
+      <div>
+        <div className="header-container">
+          <div className="header-text">
+            <h1 className="font-weight-light "> MIDIBank </h1>
             <br />
-            <TrackList />
+            <p> Make mixes with MIDI Templates </p>
+            <p> Upload your mix </p>
+            <p> Have it rated</p>
+          </div>
+        </div>
+
+        <div className="bg-test">
+          <div className="card border-0 shadow my-5 home-container">
+            <div className="card-body p-5">
+              <h1 className="font-weight-light">Current Challenges</h1>
+              <br />
+              <TrackList />
+            </div>
           </div>
         </div>
       </div>
