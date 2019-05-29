@@ -160,10 +160,11 @@ body {
 }
 
 .bg-test {
-  background: url("https://wallpapercave.com/wp/wp3210511.png") no-repeat center
-    center fixed;
-  padding: 5vh 2vh;
+  // background: url("https://wallpapercave.com/wp/wp3210511.png") no-repeat center
+  //   center fixed;
+  padding: 0vh 0vh;
   margin: 20% 0;
+  box-shadow: 8px 10px 20px #000000 !important;
 }
 .home-container {
   background: $primary !important;
@@ -205,7 +206,7 @@ body {
 .mixnumber {
   display: flex;
   float: right;
-  font-size: 0.8em;
+  font-size: 1em;
 }
 
 .list-additional {

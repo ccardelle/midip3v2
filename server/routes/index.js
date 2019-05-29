@@ -123,6 +123,12 @@ router.get("/midis", (req, res, next) => {
   });
 });
 
+router.get("/mixes", (req, res, next) => {
+  UploadMix.find().then(mixes => {
+    res.json({ mixes: mixes });
+  });
+});
+
 router.get("/userProfile", (req, res, next) => {
   User.find({ _id: req.user._id }).then(user => {
     res.json({ user: user });

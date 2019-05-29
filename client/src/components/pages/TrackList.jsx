@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Link, NavLink, Switch } from "react-router-dom";
-import playbtn from "../playbtn.png";
 import Axios from "axios";
+import api from "../../api";
 import MidiDetails from "./MidiDetails";
 
 // import MidiPlayer from "midi-player-js";
@@ -11,7 +11,8 @@ Axios.defaults.withCredentials = true;
 
 class TrackList extends React.Component {
   state = {
-    midis: []
+    midis: [],
+    mixes: []
   };
 
   componentDidMount() {
@@ -30,6 +31,25 @@ class TrackList extends React.Component {
         this.setState({ midis: res.data.midis });
       })
       .catch(err => console.error(err));
+
+    Axios.get("http://localhost:5000/api/mixes", {
+      headers: { "Content-Type": "application/octet-stream" }
+    })
+      .then(res => {
+        console.log(443534534433454353535, res);
+        this.setState({ mixes: res.data.mixes });
+      })
+      .catch(err => console.error(err));
+  }
+
+  getNumberMixes(id) {
+    let count = 0;
+    this.state.mixes.forEach(function(item) {
+      if (item.midiname === id) {
+        count++;
+      }
+    });
+    return count;
   }
 
   showMidis() {
@@ -40,7 +60,10 @@ class TrackList extends React.Component {
           <ul className="list-group list-group-item-action active">
             <li className="list-group-item justify-content-between secondary-container">
               <br />
-              <small className="mixnumber">Current Mixes: 2</small> <br />
+              <small className="mixnumber">
+                Current Mixes: {this.getNumberMixes(midi._id)}
+              </small>{" "}
+              <br />
               <h5 className="mb-1">{midi.name}</h5>
               <h6>{midi.description}</h6>
               <NavLink to={`/mididetails/${midi._id}`}>

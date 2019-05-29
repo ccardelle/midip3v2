@@ -42,6 +42,10 @@ class MidiDetails extends Component {
       .catch(err => this.setState({ message: err.toString() }));
   }
 
+  // forceUpdate() {
+  //   this.showDetails();
+  // }
+
   showDetails = () => {
     return this.state.midi.map(midi => {
       return (
@@ -81,16 +85,20 @@ class MidiDetails extends Component {
     });
   };
 
+  componentDidUpdate() {
+    this.render();
+  }
+
   handleDeleteClick(e) {
     console.log(e.target.id);
     var deletemidi = e.target.id;
 
     api.deleteMix(deletemidi).then(res => {
-      this.props.history.push(`#`);
+      api
+        .getMixesDetails(this.props.match.params.id)
+        .then(res => this.setState({ mixes: res.mixes }))
+        .catch(err => this.setState({ message: err.toString() }));
     });
-
-    // .then(res => this.setState({ mixes: res.mixes }))
-    // .catch(err => this.setState({ message: err.toString() }));
   }
 
   showMixes = () => {
@@ -101,12 +109,12 @@ class MidiDetails extends Component {
             <h4>{mixes.name}</h4>
             <br />
             {JSON.parse(localStorage.getItem("user"))._id === mixes.owner && (
-              <button id={mixes._id} onClick={e => this.handleDeleteClick(e)}>
-                <FontAwesomeIcon
-                  id={mixes._id}
-                  icon="trash-alt"
-                  onClick={e => this.handleDeleteClick(e)}
-                />
+              <button
+                className="btn btn-info  my-2 btn-danger "
+                id={mixes._id}
+                onClick={e => this.handleDeleteClick(e)}
+              >
+                DELETE
               </button>
             )}
             <hr />

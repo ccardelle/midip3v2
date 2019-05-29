@@ -7,7 +7,7 @@ const userSchema = new Schema(
     password: String,
     name: String,
     favorites: [],
-    userImgUrl: String
+    imgUrl: String
   },
   {
     timestamps: {
