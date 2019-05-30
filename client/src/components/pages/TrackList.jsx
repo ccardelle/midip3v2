@@ -13,7 +13,7 @@ class TrackList extends React.Component {
   state = {
     midis: [],
     mixes: [],
-    active: false
+    active: true
   };
 
   componentDidMount() {
@@ -69,7 +69,7 @@ class TrackList extends React.Component {
               <br />
               <img
                 object={midi._id}
-                className={this.state.active ? "spin-animation" : "vinylicon"}
+                className={this.state.active ? "spin-animation" : null}
                 src="https://s3.us-east-2.amazonaws.com/midibank/vinylicon.png"
                 alt=""
               />

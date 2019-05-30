@@ -118,6 +118,22 @@ export default {
       .catch(errHandler);
   },
 
+  getEditMix(mixId, randomthing) {
+    console.log("Received at API ==================== ", mixId);
+    return service
+      .get(`/editmix/${mixId}`)
+      .then(res => res.data)
+      .catch(errHandler);
+  },
+
+  putEditMix(mixdata) {
+    console.log("Received at EDIT MIX API PUT ==================== ", mixdata);
+    return service
+      .put("/editmix", mixdata)
+      .then(res => res.data)
+      .catch(errHandler);
+  },
+
   // addPicture(file) {
   //   const formData = new FormData();
   //   formData.append("picture", file);

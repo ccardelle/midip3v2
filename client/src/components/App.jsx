@@ -8,6 +8,7 @@ import Profile from "./pages/Profile";
 import Upload from "./pages/Upload";
 import MidiDetails from "./pages/MidiDetails";
 import UploadMix from "./pages/UploadMix";
+import EditMix from "./pages/EditMix";
 
 import FAQ from "./pages/FAQ";
 import api from "../api";
@@ -16,9 +17,7 @@ import synthlogo from "../components/synthlogo.svg";
 export default class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      // countries: []
-    };
+    this.state = {};
   }
 
   handleLogoutClick(e) {
@@ -69,6 +68,7 @@ export default class App extends Component {
           <Route path="/mididetails/:id" component={MidiDetails} />
           <Route path="/uploadmix/:id" component={UploadMix} />
           <Route path="/deletemix/:id" component={MidiDetails} />
+          <Route path="/editmix/:id" component={EditMix} />
 
           <Route render={() => <h2>404 - Page not found</h2>} />
         </Switch>

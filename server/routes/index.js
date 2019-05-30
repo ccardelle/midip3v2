@@ -167,6 +167,25 @@ router.get("/mixesdetails/:id", (req, res, next) => {
   });
 });
 
+router.get("/editmix/:id", (req, res, next) => {
+  console.log("Received MIX ID", req.params.id);
+  UploadMix.find({ _id: req.params.id }).then(mixes => {
+    console.log(mixes);
+    res.json({ mixes: mixes });
+  });
+});
+
+router.put("/editmix", (req, res, next) => {
+  console.log("Received MIX ID POST UPDATE", req.body);
+  UploadMix.findByIdAndUpdate(
+    { _id: req.body.id },
+    { name: req.body.name, description: req.body.description }
+  ).then(mixes => {
+    console.log(mixes);
+    res.json({ mixes: mixes });
+  });
+});
+
 // router.post("/upload", uploadCloud.single("file"), (req, res, next) => {
 //   console.log("what the file BACK END >>>>>>>>>>> ", req.file);
 //   console.log(

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Route, Link } from "react-router-dom";
 import api from "../../api";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -90,7 +90,6 @@ class MidiDetails extends Component {
   }
 
   handleDeleteClick(e) {
-    console.log(e.target.id);
     var deletemidi = e.target.id;
 
     api.deleteMix(deletemidi).then(res => {
@@ -99,6 +98,12 @@ class MidiDetails extends Component {
         .then(res => this.setState({ mixes: res.mixes }))
         .catch(err => this.setState({ message: err.toString() }));
     });
+  }
+
+  handleEditClick(e) {
+    console.log(e.target.id);
+    var editmix = e.target.id;
+    console.log("Edit this mix", editmix);
   }
 
   showMixes = () => {
@@ -141,6 +146,12 @@ class MidiDetails extends Component {
               >
                 DELETE
               </button>
+            )}{" "}
+            {JSON.parse(localStorage.getItem("user"))._id === mixes.owner && (
+              <Link to={`/editmix/${mixes._id}`}>
+                {" "}
+                <button className="btn  my-2 btn-success">EDIT</button>{" "}
+              </Link>
             )}
           </div>
         </div>
