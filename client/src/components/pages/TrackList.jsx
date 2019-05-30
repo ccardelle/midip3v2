@@ -13,7 +13,8 @@ class TrackList extends React.Component {
   state = {
     midis: [],
     mixes: [],
-    active: true
+    active: true,
+    clickedOn: null
   };
 
   componentDidMount() {
@@ -69,7 +70,11 @@ class TrackList extends React.Component {
               <br />
               <img
                 object={midi._id}
-                className={this.state.active ? "spin-animation" : null}
+                className={
+                  this.state.clickedOn === midi._id
+                    ? "spin-animation vinylicon"
+                    : "vinylicon"
+                }
                 src="https://s3.us-east-2.amazonaws.com/midibank/vinylicon.png"
                 alt=""
               />
@@ -91,7 +96,11 @@ class TrackList extends React.Component {
                 <button
                   className="btn btn-info my-2 btncolors"
                   name={midi.name}
-                  onClick={() => window.MIDIjs.play(midi.file)}
+                  onClick={() => {
+                    console.log(this);
+                    this.setState({ clickedOn: midi._id });
+                    window.MIDIjs.play(midi.file);
+                  }}
                 >
                   Play
                 </button>
@@ -99,7 +108,10 @@ class TrackList extends React.Component {
               <a>
                 <button
                   className="btn btn-info my-2 btncolors"
-                  onClick={() => window.MIDIjs.play()}
+                  onClick={() => {
+                    this.setState({ clickedOn: null });
+                    window.MIDIjs.stop();
+                  }}
                 >
                   Stop
                 </button>
