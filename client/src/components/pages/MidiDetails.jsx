@@ -76,7 +76,7 @@ class MidiDetails extends Component {
           </ul>
           <hr />
           <h2 className="text-white">Mixes</h2>
-          <div className="container">
+          <div className="container mixes-group">
             <div className="list-group" />
             {this.showMixes()}
           </div>
@@ -113,7 +113,14 @@ class MidiDetails extends Component {
           key={mixes._id}
           className="row list-group-item list-additional action mix-details-div "
         >
+          {" "}
           <div key={mixes._id} className="text-dark mb-1">
+            <div>
+              <h4>LIKES : {mixes.rating}</h4>{" "}
+              <button id={mixes._id} className="like-btn">
+                🞤
+              </button>
+            </div>
             <h4>{mixes.name}</h4>
             <br />
             <img
@@ -130,8 +137,8 @@ class MidiDetails extends Component {
             {mixes.description}
             <br />
             <br />
-            <div className="">
-              <audio controls className="embed-responsive-item">
+            <div className="audio-box">
+              <audio controls className="embed-responsive-item audio-cntrl">
                 <source src={mixes.file} />
               </audio>
             </div>

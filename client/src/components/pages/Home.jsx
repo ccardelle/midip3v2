@@ -39,8 +39,8 @@ export default class Home extends Component {
         </div>
         {api.isLoggedIn() && (
           <div className="bg-test">
-            <div className="card border-0 my-5 home-container mix-details-div">
-              <div className="card-body p-5 mix-details-div">
+            <div className="card border-0 my-5 home-container">
+              <div className="card-body p-5">
                 <h1 className="font-weight-light">This Month's Challenges</h1>
                 <br />
                 <TrackList />
