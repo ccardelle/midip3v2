@@ -104,7 +104,10 @@ class MidiDetails extends Component {
   showMixes = () => {
     return this.state.mixes.map(mixes => {
       return (
-        <div key={mixes._id} className="row list-group-item list-additional">
+        <div
+          key={mixes._id}
+          className="row list-group-item list-additional action "
+        >
           <div key={mixes._id} className="text-dark mb-1">
             <h4>{mixes.name}</h4>
             <br />

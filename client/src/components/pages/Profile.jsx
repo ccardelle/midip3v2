@@ -45,7 +45,7 @@ class Profile extends Component {
       return (
         <div key={midi._id} className="list-group">
           <hr />
-          <ul className="list-group list-group-item-action active">
+          <ul className="list-group list-group-item-action  active">
             <li className="list-group-item justify-content-between secondary-container">
               <h5 className="mb-1">{midi.name}</h5>
               <h6>{midi.description}</h6>
@@ -73,7 +73,7 @@ class Profile extends Component {
     return (
       <div className="container">
         <div className="card border-0 shadow my-5 home-container">
-          <div className="card-body p-5">
+          <div className="">
             <br />
             <img
               className="profile-pic img-circle"

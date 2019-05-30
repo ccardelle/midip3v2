@@ -152,6 +152,7 @@ body {
 
 .header-text {
   background: rgba(0, 0, 0, 0.8);
+
   width: 80%;
   padding: 10vh;
   border-radius: 10px;
@@ -166,13 +167,13 @@ body {
   box-shadow: 8px 10px 20px #000000 !important;
 }
 .home-container {
-  background: $primary !important;
+  background: rgba(0, 0, 0, 0.7);
   border-radius: 20px;
   margin-top: 15vh !important;
   color: white;
 }
 .secondary-container {
-  background: white !important;
+  background: rgba(246, 246, 248, 0.7);
   border-radius: 20px;
   color: black;
   box-shadow: 8px 10px 20px #000000 !important;
@@ -210,6 +211,7 @@ body {
 
 .list-additional {
   margin-bottom: 15px;
+  background: rgba(246, 246, 248, 0.8);
 }
 
 .vinylicon {
