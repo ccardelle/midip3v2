@@ -114,6 +114,22 @@ class MidiDetails extends Component {
               alt=""
             />
             <br />
+            Submited by:{" "}
+            <span className="font-weight-bold">{mixes.ownername}</span>
+            <br />
+            <br />
+            Description: {""}
+            {mixes.description}
+            <br />
+            <br />
+            <div className="">
+              <audio controls className="embed-responsive-item">
+                <source src={mixes.file} />
+              </audio>
+            </div>
+            {/* <audio controls="controls" preload="auto" id="audio_player">
+              <source src={mixes.file} />
+            </audio> */}
             {JSON.parse(localStorage.getItem("user"))._id === mixes.owner && (
               <button
                 className="btn btn-info  my-2 btn-danger "
@@ -123,17 +139,6 @@ class MidiDetails extends Component {
                 DELETE
               </button>
             )}
-            <hr />
-
-            {mixes.description}
-            <div className="">
-              <audio controls className="embed-responsive-item">
-                <source src={mixes.file} />
-              </audio>
-            </div>
-            {/* <audio controls="controls" preload="auto" id="audio_player">
-              <source src={mixes.file} />
-            </audio> */}
           </div>
         </div>
       );

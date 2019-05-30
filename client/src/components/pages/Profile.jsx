@@ -54,11 +54,11 @@ class Profile extends Component {
                   Details
                 </button>
               </Link> */}
-              <a download href={midi.file}>
-                <button className="btn btn-info  my-2 btncolors">
-                  Download
-                </button>
-              </a>
+              <div className="">
+                <audio controls className="embed-responsive-item">
+                  <source src={midi.file} />
+                </audio>
+              </div>
               {/* <NavLink to={`/mididetails/${midi.midiname}`}>
                 <button className="btn btn-info my-2 btncolors">Details</button>
               </NavLink> */}
