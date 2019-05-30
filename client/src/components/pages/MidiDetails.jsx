@@ -108,6 +108,12 @@ class MidiDetails extends Component {
           <div key={mixes._id} className="text-dark mb-1">
             <h4>{mixes.name}</h4>
             <br />
+            <img
+              className="profile-pic img-circle"
+              src={mixes.userImg}
+              alt=""
+            />
+            <br />
             {JSON.parse(localStorage.getItem("user"))._id === mixes.owner && (
               <button
                 className="btn btn-info  my-2 btn-danger "

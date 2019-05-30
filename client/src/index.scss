@@ -86,7 +86,6 @@ body {
 }
 
 .App-logo {
-  // animation: App-logo-spin infinite 30s linear;
   background-color: rgb(249, 249, 253);
   border-radius: 20px;
   border: solid 2px #0d60e5;
@@ -94,7 +93,7 @@ body {
   width: 6vh;
 }
 
-@keyframes App-logo-spin {
+@keyframes Spin {
   from {
     transform: rotate(0deg);
   }
@@ -204,8 +203,8 @@ body {
 }
 
 .mixnumber {
-  display: flex;
-  float: right;
+  display: inline;
+
   font-size: 1em;
 }
 
@@ -213,6 +212,16 @@ body {
   margin-bottom: 15px;
 }
 
+.vinylicon {
+  display: inline;
+  width: 7vh;
+}
+
+.spin-animation {
+  animation: Spin infinite 10s linear;
+  display: inline;
+  width: 7vh;
+}
 // .Login {
 //   display: flex;
 //   justify-content: center;

@@ -59,6 +59,9 @@ class Profile extends Component {
                   Download
                 </button>
               </a>
+              {/* <NavLink to={`/mididetails/${midi.midiname}`}>
+                <button className="btn btn-info my-2 btncolors">Details</button>
+              </NavLink> */}
             </li>
           </ul>
         </div>
@@ -72,9 +75,13 @@ class Profile extends Component {
         <div className="card border-0 shadow my-5 home-container">
           <div className="card-body p-5">
             <br />
-            <img className="profile-pic img-circle" src={synthlogo} alt="" />
+            <img
+              className="profile-pic img-circle"
+              src={this.state.user.imgUrl}
+              alt=""
+            />
 
-            <h3 className="font-weight-strong"> {this.state.user.username}</h3>
+            <h3 className="font-weight-strong"> {this.state.user.name}</h3>
             <hr />
             <div className="user-stats">
               <span>Uploads: 20 🎹</span>
@@ -86,7 +93,7 @@ class Profile extends Component {
             <hr />
             <div className="card border-0 shadow my-5 secondary-container">
               <div className="card-body p-5">
-                <h5>Recent Uploads</h5>
+                <h5>Recent Mix Uploads</h5>
                 {/* Midi Link */}
                 {/* <a href="http://localhost:5000/uploads/file-1558709787621.mid">
                 NEW MIDI{" "}

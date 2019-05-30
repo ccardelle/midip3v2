@@ -8,7 +8,12 @@ const UploadMixSchema = new Schema(
     owner: { type: Schema.Types.ObjectId, ref: "User" },
     rating: Number,
     file: String,
-    midiname: { type: Schema.Types.ObjectId, ref: "Midi" }
+    midiname: { type: Schema.Types.ObjectId, ref: "Midi" },
+    userImg: {
+      type: Schema.Types.String,
+      ref: "imgUrl"
+    },
+    ownername: String
   },
   {
     timestamps: {

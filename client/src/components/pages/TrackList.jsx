@@ -12,7 +12,8 @@ Axios.defaults.withCredentials = true;
 class TrackList extends React.Component {
   state = {
     midis: [],
-    mixes: []
+    mixes: [],
+    active: false
   };
 
   componentDidMount() {
@@ -52,6 +53,12 @@ class TrackList extends React.Component {
     return count;
   }
 
+  toggleClass(e) {
+    const currentState = this.state.active;
+    this.setState({ picElement: e.target.id });
+    this.setState({ active: !currentState });
+  }
+
   showMidis() {
     return this.state.midis.map(midi => {
       return (
@@ -60,10 +67,16 @@ class TrackList extends React.Component {
           <ul className="list-group list-group-item-action active">
             <li className="list-group-item justify-content-between secondary-container">
               <br />
+              <img
+                object={midi._id}
+                className={this.state.active ? "spin-animation" : "vinylicon"}
+                src="https://s3.us-east-2.amazonaws.com/midibank/vinylicon.png"
+                alt=""
+              />
+              <br />
               <small className="mixnumber">
                 Current Mixes: {this.getNumberMixes(midi._id)}
               </small>{" "}
-              <br />
               <h5 className="mb-1">{midi.name}</h5>
               <h6>{midi.description}</h6>
               <NavLink to={`/mididetails/${midi._id}`}>
@@ -80,7 +93,7 @@ class TrackList extends React.Component {
                   name={midi.name}
                   onClick={() => window.MIDIjs.play(midi.file)}
                 >
-                  Play ▶
+                  Play
                 </button>
               </a>
               <a>
@@ -88,7 +101,7 @@ class TrackList extends React.Component {
                   className="btn btn-info my-2 btncolors"
                   onClick={() => window.MIDIjs.play()}
                 >
-                  Stop ◽
+                  Stop
                 </button>
               </a>
             </li>

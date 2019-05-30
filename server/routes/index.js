@@ -106,7 +106,9 @@ router.post("/uploadmix", upload.single("file"), (req, res, next) => {
     description: req.body.description,
     file: req.file.location,
     owner: req.user._id,
-    midiname: req.body.midiname
+    midiname: req.body.midiname,
+    userImg: req.user.imgUrl,
+    ownername: req.user.name
   });
 
   uploadmix.save((err, doc) => {
@@ -144,7 +146,7 @@ router.delete("/deletemix/:id", (req, res, next) => {
 });
 
 router.get("/userUploads", (req, res, next) => {
-  Midi.find({ owner: req.user._id }).then(uploads => {
+  UploadMix.find({ owner: req.user._id }).then(uploads => {
     res.json({ uploads: uploads });
   });
 });

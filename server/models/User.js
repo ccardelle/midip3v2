@@ -7,7 +7,10 @@ const userSchema = new Schema(
     password: String,
     name: String,
     favorites: [],
-    imgUrl: String
+    imgUrl: {
+      type: String,
+      default: "https://s3.us-east-2.amazonaws.com/midibank/mixavatar.jpg"
+    }
   },
   {
     timestamps: {
