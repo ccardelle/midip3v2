@@ -55,7 +55,10 @@ class Profile extends Component {
                 </button>
               </Link> */}
               <div className="">
-                <audio controls className="embed-responsive-item">
+                <audio
+                  controls
+                  className="embed-responsive-item profile-play-btn"
+                >
                   <source src={midi.file} />
                 </audio>
               </div>
@@ -84,8 +87,8 @@ class Profile extends Component {
             <h3 className="font-weight-strong"> {this.state.user.name}</h3>
             <hr />
             <div className="user-stats">
-              <span>Uploads: 20 🎹</span>
-              <span>Mixes: 5 💿</span>
+              <span>Uploads: 4 🎹</span>
+              <span>ReMixes: 2 💿</span>
               <span>Likes: 237 👍 </span>
               <span>Followers: 150 💚</span>
               <span>Following: 10 🧡</span>

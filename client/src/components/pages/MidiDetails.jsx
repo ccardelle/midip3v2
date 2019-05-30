@@ -49,7 +49,7 @@ class MidiDetails extends Component {
   showDetails = () => {
     return this.state.midi.map(midi => {
       return (
-        <div key={midi._id} className="list-group">
+        <div key={midi._id} className="list-group justify-content-between">
           <hr />
           <h2 className="text-white">Song Details</h2>
           <ul className="list-group list-group-item-action">
@@ -111,7 +111,7 @@ class MidiDetails extends Component {
       return (
         <div
           key={mixes._id}
-          className="row list-group-item list-additional action "
+          className="row list-group-item list-additional action mix-details-div "
         >
           <div key={mixes._id} className="text-dark mb-1">
             <h4>{mixes.name}</h4>

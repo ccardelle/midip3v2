@@ -30,7 +30,16 @@ export default class App extends Component {
         {/* <img src={logo} className="App-logo" alt="logo" /> */}
         <nav className="navbar main-nav fixed-top">
           <div className="navbar main-logo-group">
-            <img className="App-logo" src={synthlogo} alt="" />
+            {api.isLoggedIn() && (
+              <img
+                className="App-logo"
+                src={JSON.parse(localStorage.getItem("user")).imgUrl}
+                alt=""
+              />
+            )}
+            {!api.isLoggedIn() && (
+              <img className="App-logo" src={synthlogo} alt="" />
+            )}
             <h1 className="logo-title">MIDIBank</h1>
           </div>
           <NavLink to="/" exact>

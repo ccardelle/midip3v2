@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import TrackList from "./TrackList";
+import api from "../../api";
 export default class Home extends Component {
   // constructor(props) {
   //   super(props)
@@ -12,23 +13,41 @@ export default class Home extends Component {
       <div>
         <div className="header-container">
           <div className="header-text">
-            <h1 className="font-weight-light "> MIDIBank </h1>
+            {api.isLoggedIn() && (
+              <h1 className="font-weight-light ">
+                {" "}
+                Welcome {JSON.parse(localStorage.getItem("user")).name}{" "}
+              </h1>
+            )}
             <br />
-            <p> Make mixes with MIDI Templates </p>
-            <p> Upload your mix </p>
-            <p> Have it rated</p>
-          </div>
-        </div>
+            {api.isLoggedIn() && (
+              <h1 className="font-weight-light "> Start Creating </h1>
+            )}
+            {api.isLoggedIn() && <p className="down-arrow">▼</p>}
+            {!api.isLoggedIn() && <p className="down-arrow">▲</p>}
+            {!api.isLoggedIn() && (
+              <h1 className="font-weight-light "> Sign Up or Log In </h1>
+            )}
 
-        <div className="bg-test">
-          <div className="card border-0 shadow my-5 home-container">
-            <div className="card-body p-5">
-              <h1 className="font-weight-light">Current Challenges</h1>
+            <div>
+              {/* <p> UPLOAD YOUR MIX </p>
+
+              <p> HAVE IT RATED</p> */}
               <br />
-              <TrackList />
             </div>
           </div>
         </div>
+        {api.isLoggedIn() && (
+          <div className="bg-test">
+            <div className="card border-0 my-5 home-container mix-details-div">
+              <div className="card-body p-5 mix-details-div">
+                <h1 className="font-weight-light">This Month's Challenges</h1>
+                <br />
+                <TrackList />
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     );
   }

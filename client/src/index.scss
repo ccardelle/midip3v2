@@ -103,6 +103,16 @@ body {
   }
 }
 
+@keyframes Jump {
+  from {
+    transform: scale(0.5);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
 // --------------------
 // Style for Home component
 .Home {
@@ -129,7 +139,8 @@ body {
   margin-top: 20vh;
   padding: 2%;
   border-radius: 10px;
-  background: $primary;
+  color: white;
+  background: rgba(0, 0, 0, 0.8);
 }
 
 .header-container {
@@ -145,18 +156,20 @@ body {
   // box-shadow: 0 0 8px 8px black inset;
 
   // background: $primary !important;
-  margin-top: 10vh !important;
+
   color: white;
   padding: 10px;
 }
 
 .header-text {
   background: rgba(0, 0, 0, 0.8);
-
+  font-weight: lighter;
   width: 80%;
-  padding: 10vh;
+  padding: 6vh;
   border-radius: 10px;
-  margin: 15%;
+  margin: 0%;
+  font-size: 2em;
+  font-family: monospace;
 }
 
 .bg-test {
@@ -169,7 +182,7 @@ body {
 .home-container {
   background: rgba(0, 0, 0, 0.7);
   border-radius: 20px;
-  margin-top: 15vh !important;
+  margin-top: 10vh !important;
   color: white;
 }
 .secondary-container {
@@ -220,9 +233,34 @@ body {
 }
 
 .spin-animation {
-  animation: Spin infinite 10s linear;
+  animation: Spin infinite 2s linear;
   display: inline;
   width: 7vh;
+}
+
+.profile-play-btn {
+  max-width: 245px;
+}
+
+.mix-pic {
+  display: flex;
+  flex-direction: flex-end;
+}
+
+.mix-details-div {
+  border-radius: 20px;
+  margin-bottom: 50px;
+}
+
+.mix-details-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.down-arrow {
+  animation: Jump infinite 0.75s linear;
+  font-size: 50px;
 }
 // .Login {
 //   display: flex;
