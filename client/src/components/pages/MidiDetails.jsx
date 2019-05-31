@@ -11,6 +11,7 @@ class MidiDetails extends Component {
     midi: [],
     message: [],
     mixes: [],
+    likedmix: [],
     counter: 0
   };
 
@@ -30,6 +31,7 @@ class MidiDetails extends Component {
   // }
 
   componentDidMount() {
+    this.setState({ counter: 0 });
     console.log(this.props.match.params.id);
     api
       .getMidiDetails(this.props.match.params.id)
@@ -85,9 +87,7 @@ class MidiDetails extends Component {
     });
   };
 
-  componentDidUpdate() {
-    this.render();
-  }
+  componentDidUpdate() {}
 
   handleDeleteClick(e) {
     var deletemidi = e.target.id;
@@ -106,6 +106,24 @@ class MidiDetails extends Component {
     console.log("Edit this mix", editmix);
   }
 
+  handleLikeClick(e) {
+    console.log(e.target.id);
+    var likedmix = {
+      id: e.target.id
+    };
+
+    console.log("LIKED", likedmix);
+
+    api
+      .putLikedMix(likedmix)
+      .then(res => this.setState({}))
+      .catch(err => this.setState({ message: err.toString() }));
+    api
+      .getMixesDetails(this.props.match.params.id)
+      .then(res => this.setState({ mixes: res.mixes }))
+      .catch(err => this.setState({ message: err.toString() }));
+  }
+
   showMixes = () => {
     return this.state.mixes.map(mixes => {
       return (
@@ -117,7 +135,11 @@ class MidiDetails extends Component {
           <div key={mixes._id} className="text-dark mb-1">
             <div>
               <h4>LIKES : {mixes.rating}</h4>{" "}
-              <button id={mixes._id} className="like-btn">
+              <button
+                id={mixes._id}
+                className="like-btn"
+                onClick={e => this.handleLikeClick(e)}
+              >
                 🞤
               </button>
             </div>

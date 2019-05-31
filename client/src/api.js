@@ -134,6 +134,16 @@ export default {
       .catch(errHandler);
   },
 
+  putLikedMix(likedmix) {
+    console.log(
+      "Received at EDIT LIKES API PUT ==================== ",
+      likedmix
+    );
+    return service
+      .put("/editlikes", likedmix)
+      .then(res => res.data)
+      .catch(errHandler);
+  },
   // addPicture(file) {
   //   const formData = new FormData();
   //   formData.append("picture", file);

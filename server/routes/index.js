@@ -186,6 +186,16 @@ router.put("/editmix", (req, res, next) => {
   });
 });
 
+router.put("/editlikes", (req, res, next) => {
+  console.log("Received LIKED ID POST UPDATE", req.body);
+  UploadMix.findByIdAndUpdate(
+    { _id: req.body.id },
+    { $inc: { rating: 1 } }
+  ).then(mixes => {
+    console.log(mixes);
+    res.json({ mixes: mixes });
+  });
+});
 // router.post("/upload", uploadCloud.single("file"), (req, res, next) => {
 //   console.log("what the file BACK END >>>>>>>>>>> ", req.file);
 //   console.log(
