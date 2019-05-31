@@ -17,7 +17,7 @@ class MidiDetails extends Component {
 
   // componentDidMount() {
   //   Axios.get(
-  //     "http://localhost:5000/api/mididetails/" + this.props.match.params.id,
+  //     "https://midibank.herokuapp.com/api/mididetails/" + this.props.match.params.id,
   //     {
   //       headers: { "Content-Type": "application/octet-stream" }
   //     }

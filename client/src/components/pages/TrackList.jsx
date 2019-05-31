@@ -25,7 +25,7 @@ class TrackList extends React.Component {
 
     document.body.appendChild(script);
 
-    Axios.get("http://localhost:5000/api/midis", {
+    Axios.get("https://midibank.herokuapp.com/api/midis", {
       headers: { "Content-Type": "application/octet-stream" }
     })
       .then(res => {
@@ -34,7 +34,7 @@ class TrackList extends React.Component {
       })
       .catch(err => console.error(err));
 
-    Axios.get("http://localhost:5000/api/mixes", {
+    Axios.get("https://midibank.herokuapp.com/api/mixes", {
       headers: { "Content-Type": "application/octet-stream" }
     })
       .then(res => {

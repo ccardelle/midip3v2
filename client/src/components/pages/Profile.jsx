@@ -13,7 +13,7 @@ class Profile extends Component {
   };
 
   componentDidMount() {
-    Axios.get("http://localhost:5000/api/userProfile", {
+    Axios.get("https://midibank.herokuapp.com/api/userProfile", {
       headers: { "Content-Type": "application/octet-stream" }
     })
       .then(res => {
@@ -23,7 +23,7 @@ class Profile extends Component {
       })
       .catch(err => console.error(err));
 
-    Axios.get("http://localhost:5000/api/userUploads", {
+    Axios.get("https://midibank.herokuapp.com/api/userUploads", {
       headers: { "Content-Type": "application/octet-stream" }
     })
       .then(res => {
@@ -98,7 +98,7 @@ class Profile extends Component {
               <div className="card-body p-5">
                 <h5>Recent Mix Uploads</h5>
                 {/* Midi Link */}
-                {/* <a href="http://localhost:5000/uploads/file-1558709787621.mid">
+                {/* <a href="https://midibank.herokuapp.com/uploads/file-1558709787621.mid">
                 NEW MIDI{" "}
               </a> */}
                 {this.showMidis()}
@@ -109,7 +109,7 @@ class Profile extends Component {
                 <div>
                   <h5>Favorites</h5>
                   {/* Midi Link */}
-                  {/* <a href="http://localhost:5000/uploads/file-1558709787621.mid">
+                  {/* <a href="https://midibank.herokuapp.com/uploads/file-1558709787621.mid">
                 NEW MIDI{" "}
               </a> */}
                   {/* {this.showMidis()} */}
@@ -120,7 +120,7 @@ class Profile extends Component {
               <div className="card-body p-5">
                 <h5>Favorite Mixers</h5>
                 {/* Midi Link */}
-                {/* <a href="http://localhost:5000/uploads/file-1558709787621.mid">
+                {/* <a href="https://midibank.herokuapp.com/uploads/file-1558709787621.mid">
                 NEW MIDI{" "}
               </a> */}
                 {/* {this.showMidis()} */}
