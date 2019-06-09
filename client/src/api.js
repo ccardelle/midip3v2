@@ -144,18 +144,7 @@ export default {
       .then(res => res.data)
       .catch(errHandler);
   },
-  // addPicture(file) {
-  //   const formData = new FormData();
-  //   formData.append("picture", file);
-  //   return service
-  //     .post("/endpoint/to/add/a/picture", formData, {
-  //       headers: {
-  //         "Content-Type": "multipart/form-data"
-  //       }
-  //     })
-  //     .then(res => res.data)
-  //     .catch(errHandler);
-  // },
+
   upload(uploadInfo, data) {
     console.log(
       "the info from the form to the api component >>>>>>>>>>>>> ",
@@ -182,8 +171,7 @@ export default {
       })
       .then(res => {
         console.log("adfasdfsaf", res);
-        // If we have localStorage.getItem('user') saved, the application will consider we are loggedin
-        // localStorage.setItem("user", JSON.stringify(res.data));
+
         return res.data;
       })
       .catch(errHandler);
@@ -215,37 +203,9 @@ export default {
       })
       .then(res => {
         console.log("adfasdfsaf", res);
-        // If we have localStorage.getItem('user') saved, the application will consider we are loggedin
-        // localStorage.setItem("user", JSON.stringify(res.data));
+
         return res.data;
       })
       .catch(errHandler);
   }
 };
-
-// formData.body = file.description
-
-// addPicture(file, items) {
-//   const formData = new FormData()
-//   formData.append("picture", file)
-//   console.log(" the form data ---------- ", formData, " ======================= ", items);
-//   return service
-//     .post('/first-user/pictures', formData, {
-//       headers: {
-//         'Content-Type': 'multipart/form-data',
-//       },
-//     })
-//     .then(res => {
-//       console.log("the res.data after file upload -------------- ", res.data)
-//       items.imageInfo = res.data.saved
-//       return this.updatePic(items)
-//     })
-//     .catch(errHandler)
-// },
-// updatePic(info) {
-//   console.log("the info when updating the pic >>>>>>>>>>>>>>> ", info)
-//   return service
-//   .post('/updatePhoto', info)
-//   .then(res => res.data)
-//   .catch(errHandler)
-// },
