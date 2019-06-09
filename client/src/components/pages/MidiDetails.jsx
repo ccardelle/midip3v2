@@ -3,9 +3,6 @@ import { Route, Link } from "react-router-dom";
 import api from "../../api";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-// import Axios from "axios";
-// Axios.defaults.withCredentials = true;
-
 class MidiDetails extends Component {
   state = {
     midi: [],
@@ -14,21 +11,6 @@ class MidiDetails extends Component {
     likedmix: [],
     counter: 0
   };
-
-  // componentDidMount() {
-  //   Axios.get(
-  //     "https://midibank.herokuapp.com/api/mididetails/" + this.props.match.params.id,
-  //     {
-  //       headers: { "Content-Type": "application/octet-stream" }
-  //     }
-  //   )
-  //     .then(res => {
-  //       console.log("Retriving user data", res);
-  //       this.setState({ midi: res.data.midi });
-  //       console.log("THIS IS THE CURRENT STATE", this.state.midi[0]);
-  //     })
-  //     .catch(err => console.error(err));
-  // }
 
   componentDidMount() {
     this.setState({ counter: 0 });
@@ -59,11 +41,6 @@ class MidiDetails extends Component {
               <h5 className="mb-1">{midi.name}</h5>
               <h6>{midi.description}</h6>
 
-              {/* <Link to="/upload" exact>
-                <button className="btn btn-info  my-2 btncolors">
-                  Details
-                </button>
-              </Link> */}
               <a download href={midi.file}>
                 <button className="btn btn-info  my-2 btncolors">
                   Download
@@ -164,9 +141,6 @@ class MidiDetails extends Component {
                 <source src={mixes.file} />
               </audio>
             </div>
-            {/* <audio controls="controls" preload="auto" id="audio_player">
-              <source src={mixes.file} />
-            </audio> */}
             {JSON.parse(localStorage.getItem("user"))._id === mixes.owner && (
               <button
                 className="btn btn-info  my-2 btn-danger "

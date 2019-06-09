@@ -196,44 +196,5 @@ router.put("/editlikes", (req, res, next) => {
     res.json({ mixes: mixes });
   });
 });
-// router.post("/upload", uploadCloud.single("file"), (req, res, next) => {
-//   console.log("what the file BACK END >>>>>>>>>>> ", req.file);
-//   console.log(
-//     "what the body +++++++++++ BACK END BODY",
-//     req.body,
-//     "======================= BACK END DATA",
-//     req.file
-//   );
-
-//   // User.findOneAndUpdate({}, { pictureUrl: req.file.url })
-//   //   .then(() => {
-//   //     res.json({
-//   //       success: true,
-//   //       pictureUrl: req.file.url
-//   //     })
-//   //   })
-
-//   Midi.create({ file: req.file })
-//     .then(result => {
-//       console.log("saved MIDI", result);
-//       res.json({ saved: result });
-//     })
-//     .catch(err => console.error(err));
-// });
-
-// router.post("/updatePhoto", (req, res, next) => {
-//   console.log("the info when updated the picture................ ", req.body);
-//   Picture.findById(req.body.imageInfo._id)
-//     .then(thePic => {
-//       thePic.description = req.body.description;
-//       thePic
-//         .save()
-//         .then(updatedPic => {
-//           res.json({ thePhoto: updatedPic });
-//         })
-//         .catch(err => console.log(err));
-//     })
-//     .catch(err => console.log(err));
-// });
 
 module.exports = router;
