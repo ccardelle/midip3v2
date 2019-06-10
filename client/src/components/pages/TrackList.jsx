@@ -1,8 +1,6 @@
 import React from "react";
 import { Route, Link, NavLink, Switch } from "react-router-dom";
 import Axios from "axios";
-import api from "../../api";
-import MidiDetails from "./MidiDetails";
 
 Axios.defaults.withCredentials = true;
 

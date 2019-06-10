@@ -49,11 +49,7 @@ class Profile extends Component {
             <li className="list-group-item justify-content-between secondary-container">
               <h5 className="mb-1">{midi.name}</h5>
               <h6>{midi.description}</h6>
-              {/* <Link to="/upload" exact>
-                <button className="btn btn-info  my-2 btncolors">
-                  Details
-                </button>
-              </Link> */}
+
               <div className="">
                 <audio
                   controls
@@ -62,9 +58,6 @@ class Profile extends Component {
                   <source src={midi.file} />
                 </audio>
               </div>
-              {/* <NavLink to={`/mididetails/${midi.midiname}`}>
-                <button className="btn btn-info my-2 btncolors">Details</button>
-              </NavLink> */}
             </li>
           </ul>
         </div>
