@@ -4,9 +4,6 @@ import Axios from "axios";
 import api from "../../api";
 import MidiDetails from "./MidiDetails";
 
-// import MidiPlayer from "midi-player-js";
-// const MIDIjs = require("https://www.midijs.net/lib/midi.js");
-
 Axios.defaults.withCredentials = true;
 
 class TrackList extends React.Component {
