@@ -29,16 +29,6 @@ class EditMix extends React.Component {
     });
   }
 
-  // handleFileInputChange(event) {
-  //   console.log(
-  //     "the event target on file change >>>>>>>>>> ",
-  //     event.target.files[0]
-  //   );
-  //   this.setState({
-  //     [event.target.name]: event.target.files[0]
-  //   });
-  // }
-
   handleClick(e) {
     e.preventDefault();
     console.log("this is the state prior to the submit ------ ", this.state);
@@ -93,16 +83,6 @@ class EditMix extends React.Component {
                     }}
                   />
 
-                  {/* <label>Midi File (.mid only)</label>
-                  <input
-                    className="form-control mb-4"
-                    type="file"
-                    name="file"
-                    onChange={e => {
-                      this.handleFileInputChange(e);
-                    }}
-                  /> */}
-
                   <button
                     className="btn btn-info btn-block my-4 bg-success btn-sizing"
                     onClick={e => this.handleClick(e)}
@@ -116,9 +96,6 @@ class EditMix extends React.Component {
                 >
                   Cancel
                 </button>
-                {/* <button onClick={() => console.log(this.state.mixes)}>
-                  LOGOOGOGOGOGOGOGOGOGO
-                </button> */}
               </div>
             </div>
 

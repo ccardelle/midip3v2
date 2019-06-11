@@ -27,7 +27,6 @@ export default class App extends Component {
   render() {
     return (
       <div className="App">
-        {/* <img src={logo} className="App-logo" alt="logo" /> */}
         <nav className="navbar main-nav fixed-top">
           <div className="navbar main-logo-group">
             {api.isLoggedIn() && (
@@ -47,7 +46,6 @@ export default class App extends Component {
           </NavLink>
 
           {api.isLoggedIn() && <NavLink to="/profile">Profile</NavLink>}
-          {/* <NavLink to="/profile">Profile</NavLink> */}
           {api.isLoggedIn() && (
             <NavLink to="/upload" exact>
               Upload
@@ -66,8 +64,6 @@ export default class App extends Component {
 
         <Switch>
           <Route path="/" exact component={Home} />
-          {/* <Route path="/countries" component={Countries} /> */}
-          {/* <Route path="/add-country" component={AddCountry} /> */}
           <Route path="/signup" component={Signup} />
           <Route path="/profile" component={Profile} />
           <Route path="/login" component={Login} />

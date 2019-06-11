@@ -145,6 +145,8 @@ export default {
       .catch(errHandler);
   },
 
+  // Liked Increment Route
+
   putLikedMix(likedmix) {
     console.log(
       "Received at EDIT LIKES API PUT ==================== ",
@@ -157,6 +159,7 @@ export default {
   },
 
   //Upload Midi route
+
   upload(uploadInfo, data) {
     console.log(
       "the info from the form to the api component >>>>>>>>>>>>> ",
