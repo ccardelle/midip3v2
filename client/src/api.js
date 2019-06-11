@@ -63,8 +63,7 @@ export default {
     return service.get("/logout");
   },
 
-  // This is an example on how to use this method in a different file
-  // api.getCountries().then(countries => { /* ... */ })
+  // Get Mixes Route
   getMixes() {
     return service
       .get("/mixes")
@@ -86,6 +85,8 @@ export default {
       .catch(errHandler);
   },
 
+  // Get Midi Details Route
+
   getMidiDetails(mididetails) {
     console.log("Received at API ==================== ", mididetails);
     return service
@@ -93,6 +94,8 @@ export default {
       .then(res => res.data)
       .catch(errHandler);
   },
+
+  // Get Mixes Details Route
 
   getMixesDetails(mixesdetails) {
     console.log("Received at API ==================== ", mixesdetails);
@@ -102,6 +105,8 @@ export default {
       .catch(errHandler);
   },
 
+  // Edit User Route
+
   editUser(user) {
     console.log("Received at API ==================== ", user);
     return service
@@ -109,6 +114,8 @@ export default {
       .then(res => res.data)
       .catch(errHandler);
   },
+
+  // Delete Mix Route
 
   deleteMix(mixId, randomthing) {
     console.log("Received at API ==================== ", mixId);
@@ -118,6 +125,8 @@ export default {
       .catch(errHandler);
   },
 
+  //Edit Mix Route
+
   getEditMix(mixId, randomthing) {
     console.log("Received at API ==================== ", mixId);
     return service
@@ -125,6 +134,8 @@ export default {
       .then(res => res.data)
       .catch(errHandler);
   },
+
+  // Put Edited Mix Route
 
   putEditMix(mixdata) {
     console.log("Received at EDIT MIX API PUT ==================== ", mixdata);
@@ -145,6 +156,7 @@ export default {
       .catch(errHandler);
   },
 
+  //Upload Midi route
   upload(uploadInfo, data) {
     console.log(
       "the info from the form to the api component >>>>>>>>>>>>> ",
@@ -176,6 +188,8 @@ export default {
       })
       .catch(errHandler);
   },
+
+  // Upload Mix Route
 
   uploadmix(uploadInfo, data) {
     console.log(
