@@ -1,5 +1,4 @@
 import React, { Router, Component, NavLink, Link } from "react";
-import synthlogo from "../../components/synthlogo.svg";
 import Axios from "axios";
 Axios.defaults.withCredentials = true;
 
@@ -101,22 +100,12 @@ class Profile extends Component {
               <div className="card-body p-5">
                 <div>
                   <h5>Favorites</h5>
-                  {/* Midi Link */}
-                  {/* <a href="https://midibank.herokuapp.com/uploads/file-1558709787621.mid">
-                NEW MIDI{" "}
-              </a> */}
-                  {/* {this.showMidis()} */}
                 </div>
               </div>
             </div>
             <div className="card border-0 shadow my-5 secondary-container">
               <div className="card-body p-5">
                 <h5>Favorite Mixers</h5>
-                {/* Midi Link */}
-                {/* <a href="https://midibank.herokuapp.com/uploads/file-1558709787621.mid">
-                NEW MIDI{" "}
-              </a> */}
-                {/* {this.showMidis()} */}
               </div>
             </div>
           </div>
