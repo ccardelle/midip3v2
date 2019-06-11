@@ -7,7 +7,6 @@ const Midi = require("../models/Midi");
 const User = require("../models/User");
 const UploadMix = require("../models/UploadMix");
 const multer = require("multer");
-// const uploadCloud = require("../configs/cloudinary");
 const router = express.Router();
 
 router.get("/secret", isLoggedIn, (req, res, next) => {
@@ -115,8 +114,6 @@ router.post("/uploadmix", upload.single("file"), (req, res, next) => {
     console.log(err, doc, 25243534345);
     res.json({ file: file });
   });
-
-  //res.send(file);
 });
 
 router.get("/midis", (req, res, next) => {
