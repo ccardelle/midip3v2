@@ -1,6 +1,8 @@
 import React from "react";
 import api from "../../api";
 
+// Component for editing mixes and details
+
 class EditMix extends React.Component {
   state = {
     name: "",
