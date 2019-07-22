@@ -43,25 +43,6 @@ class Upload extends React.Component {
       .catch(err => this.setState({ message: err }));
   }
 
-  // handleSubmit(e) {
-  //   e.preventDefault()
-  //   var data = {
-  //     description: this.state.description
-  //   }
-  //   console.log("this is the data being passed -------- ", data);
-  //   // Reuse of the method "addPicture" from the file '../api'
-  //   api.addPicture(this.state.file, data).then(result=>{
-  //     console.log("the fruits of our labor ---------- ", result)
-  //   })
-  // }
-
-  // componentDidMount() {
-  //   api
-  //     .getSecret()
-  //     .then(data => this.setState({ secret: data.secret }))
-  //     .catch(err => this.setState({ message: err.toString() }));
-  // }
-
   render() {
     return (
       <div className="container">
