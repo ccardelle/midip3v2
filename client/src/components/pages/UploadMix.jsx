@@ -32,8 +32,6 @@ class Upload extends React.Component {
       description: this.state.description,
       file: this.state.file,
       midiname: this.props.match.params.id
-
-      // password: this.state.password
     };
 
     api
